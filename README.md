@@ -11,8 +11,22 @@ Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __
 - [Matplotlib.pyplot](#Matplotlib.pyplot)
 
 ## Plotly
+<br/>
+Installation :
+```py
+pip install plotly
+```
+Documentation [Plotly](https://plotly.com/python/) .
 
 ## Matplotlib.pyplot
+<br/>
+Installation :
+```py
+pip install matplotlib
+```
+Documentation [Matplotlib.pyplot](https://matplotlib.org/3.3.1/api/_as_gen/matplotlib.pyplot.html) .
+
+
 
 
 <p align="center">
