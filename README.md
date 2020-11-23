@@ -16,8 +16,7 @@ Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __
 	- [Custom controls](#custom-controls)
 - [Matplotlib.pyplot](#Matplotlib.pyplot)
 
-
-
+<br/>
 
 # Plotly
 <br/>
@@ -31,9 +30,17 @@ pip install plotly
 Documentation [Plotly](https://plotly.com/python/) .
 <br/>
 
-### Importations
+## Importations
+<br/>
+```py
+from plotly.offline import plot  # pour travailler en offline!
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import pandas as pd
+import numpy as np
+```
 
-#### test
 
 
 
