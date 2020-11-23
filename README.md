@@ -45,6 +45,8 @@ Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __
 		- [Graphe subplots](#graphe-subplots)
 		- [Les types de subplot](#les-types-de-subplot)
 	- [Graphiques en 3D](#graphiques-en-3d)
+		- [Surface](#surface)
+		- [Nuage de points](#nuage-de-points)
 	- [Slide bar](#slide-bar)
 - [Matplotlib.pyplot](#Matplotlib.pyplot)
 
