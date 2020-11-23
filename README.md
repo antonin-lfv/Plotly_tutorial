@@ -563,7 +563,7 @@ fig = make_subplots(rows=2, cols=2, shared_yaxes=True)
 
 <br/>
 <p align="center">
- 
+<img width="1166" alt="Capture d’écran 2020-11-23 à 22 15 19" src="https://user-images.githubusercontent.com/63207451/100016992-84db0a00-2dda-11eb-81ee-03184e77c9f4.png">
 <p/>
 <br/>
 
