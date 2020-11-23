@@ -16,7 +16,7 @@ Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __
 	- [Fonctions principales plotly.express](#fonctions-principales-plotlyexpress)
 	- [Graphiques multiples - Subplots](#graphiques-multiples---subplots)
 	- [Graphiques en 3D](#graphiques-en-3d)
-	- [Custom controls](#custom-controls)
+	- [Slide bar](#slide-bar)
 - [Matplotlib.pyplot](#Matplotlib.pyplot)
 
 <br/>
@@ -93,7 +93,7 @@ plot(fig)
 <img width="901" alt="Capture d’écran 2020-11-23 à 20 52 48" src="https://user-images.githubusercontent.com/63207451/100008564-e5177f00-2dcd-11eb-8a5a-740cc6177d08.png">
 <p/>
 
-
+## Fonctions principales plotly.express
 
 
 
