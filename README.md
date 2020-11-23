@@ -151,7 +151,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1184" alt="Capture d’écran 2020-11-23 à 21 42 12" src="https://user-images.githubusercontent.com/63207451/100014025-1300c180-2dd6-11eb-9a02-214a1174b9c8.png">
 <p/>
 <br/>
 
@@ -165,7 +165,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1184" alt="Capture d’écran 2020-11-23 à 21 42 24" src="https://user-images.githubusercontent.com/63207451/100014061-23b13780-2dd6-11eb-9996-866420a6b799.png">	
 <p/>
 <br/>
 
@@ -179,7 +179,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1187" alt="Capture d’écran 2020-11-23 à 21 42 41" src="https://user-images.githubusercontent.com/63207451/100014104-3461ad80-2dd6-11eb-8f06-02a555611f21.png">	
 <p/>
 <br/>
 
@@ -192,7 +192,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 03" src="https://user-images.githubusercontent.com/63207451/100014133-404d6f80-2dd6-11eb-9f4e-f0bca9ee9b96.png">
 <p/>
 <br/>
 
@@ -206,7 +206,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 15" src="https://user-images.githubusercontent.com/63207451/100014179-53f8d600-2dd6-11eb-810e-d1f9c64dad45.png">	
 <p/>
 <br/>
 
@@ -222,7 +222,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 34" src="https://user-images.githubusercontent.com/63207451/100014215-5fe49800-2dd6-11eb-9806-cd62c521106d.png">	
 <p/>
 <br/>
 
@@ -236,7 +236,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 48" src="https://user-images.githubusercontent.com/63207451/100014261-6d018700-2dd6-11eb-9d87-7945753a2a19.png">	
 <p/>
 <br/>
 
@@ -249,7 +249,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 58" src="https://user-images.githubusercontent.com/63207451/100014395-991d0800-2dd6-11eb-933a-1390d94c4e6b.png">	
 <p/>
 <br/>
 
@@ -264,7 +264,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1163" alt="Capture d’écran 2020-11-23 à 21 44 17" src="https://user-images.githubusercontent.com/63207451/100014448-ab974180-2dd6-11eb-8256-220db37a275e.png">	
 <p/>
 <br/>
 
@@ -280,7 +280,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1163" alt="Capture d’écran 2020-11-23 à 21 44 27" src="https://user-images.githubusercontent.com/63207451/100014497-ba7df400-2dd6-11eb-8931-121589445a3f.png">	
 <p/>
 <br/>
 
@@ -295,7 +295,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1163" alt="Capture d’écran 2020-11-23 à 21 44 36" src="https://user-images.githubusercontent.com/63207451/100014528-c5d11f80-2dd6-11eb-9467-2a775d101bd8.png">	
 <p/>
 <br/>
 
@@ -309,7 +309,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1163" alt="Capture d’écran 2020-11-23 à 21 44 47" src="https://user-images.githubusercontent.com/63207451/100014559-d2557800-2dd6-11eb-928f-2f080b549af9.png">	
 <p/>
 <br/>
 
@@ -323,7 +323,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1163" alt="Capture d’écran 2020-11-23 à 21 44 58" src="https://user-images.githubusercontent.com/63207451/100014601-e26d5780-2dd6-11eb-92bf-97314f41bb47.png">	
 <p/>
 <br/>
 
@@ -336,7 +336,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1163" alt="Capture d’écran 2020-11-23 à 21 45 11" src="https://user-images.githubusercontent.com/63207451/100014649-f5802780-2dd6-11eb-80b4-3af4f9555091.png">	
 <p/>
 <br/>
 
@@ -349,7 +349,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1163" alt="Capture d’écran 2020-11-23 à 21 45 20" src="https://user-images.githubusercontent.com/63207451/100014681-0335ad00-2dd7-11eb-9830-34997f3030ff.png">	
 <p/>
 <br/>
 
@@ -362,7 +362,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1163" alt="Capture d’écran 2020-11-23 à 21 45 28" src="https://user-images.githubusercontent.com/63207451/100014702-0d57ab80-2dd7-11eb-8173-80050ccde0a5.png">	
 <p/>
 <br/>
 
@@ -375,7 +375,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1166" alt="Capture d’écran 2020-11-23 à 21 45 43" src="https://user-images.githubusercontent.com/63207451/100014731-1a749a80-2dd7-11eb-82df-de6468a28d7d.png">	
 <p/>
 <br/>
 
@@ -393,7 +393,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1166" alt="Capture d’écran 2020-11-23 à 21 45 59" src="https://user-images.githubusercontent.com/63207451/100014759-252f2f80-2dd7-11eb-9d56-630b029358a2.png">	
 <p/>
 <br/>
 
@@ -408,7 +408,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1166" alt="Capture d’écran 2020-11-23 à 21 46 10" src="https://user-images.githubusercontent.com/63207451/100014788-311af180-2dd7-11eb-951b-a803e3e458ed.png">	
 <p/>
 <br/>
 
@@ -426,7 +426,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1166" alt="Capture d’écran 2020-11-23 à 21 46 25" src="https://user-images.githubusercontent.com/63207451/100014823-43952b00-2dd7-11eb-9696-d81e18e1667a.png">	
 <p/>
 <br/>
 
@@ -440,7 +440,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1166" alt="Capture d’écran 2020-11-23 à 21 46 40" src="https://user-images.githubusercontent.com/63207451/100014889-59a2eb80-2dd7-11eb-8e5f-ce79cc9a9100.png">	
 <p/>
 <br/>
 
@@ -454,7 +454,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1166" alt="Capture d’écran 2020-11-23 à 21 46 55" src="https://user-images.githubusercontent.com/63207451/100014925-6aebf800-2dd7-11eb-9316-e808a0563909.png">	
 <p/>
 <br/>
 
@@ -468,7 +468,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1166" alt="Capture d’écran 2020-11-23 à 21 47 08" src="https://user-images.githubusercontent.com/63207451/100014956-763f2380-2dd7-11eb-93fa-c342ade13527.png">	
 <p/>
 <br/>
 
@@ -482,7 +482,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1166" alt="Capture d’écran 2020-11-23 à 21 47 35" src="https://user-images.githubusercontent.com/63207451/100014978-835c1280-2dd7-11eb-8bcf-f0f2893fe247.png">	
 <p/>
 <br/>
 
@@ -496,22 +496,15 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1166" alt="Capture d’écran 2020-11-23 à 21 47 50" src="https://user-images.githubusercontent.com/63207451/100015002-8d7e1100-2dd7-11eb-8f25-14d3424f0daa.png">	
 <p/>
 <br/>
-
-
-
-
-
-
-
-
 <p align="center">
 <a href="#introduction"> retour au sommaire </a>
 <p/>
 
-
+<br/>
+## Graphiques multiples - Subplots
 
 
 
