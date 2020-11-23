@@ -19,8 +19,10 @@ Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __
 <br/>
 
 # Plotly
+
 <br/>
 Installation :
+
 <br/>
 
 ```py
@@ -31,7 +33,9 @@ Documentation [Plotly](https://plotly.com/python/) .
 <br/>
 
 ## Importations
+
 <br/>
+
 ```py
 from plotly.offline import plot  # pour travailler en offline!
 import plotly.express as px
@@ -43,7 +47,47 @@ import numpy as np
 
 ## Commandes de bases graphique
 
+<br/>
 
+### Premier exemple
+
+```py
+wide_df = px.data.medals_wide()
+fig = px.bar(wide_df, x="nation", y=["gold", "silver", "bronze"],
+             title="Wide-Form Input, relabelled", # le titre
+             labels={"value": "count", "variable": "medal"}, # le nom des axes
+             color_discrete_map={"gold": "gold", "silver": "silver", "bronze": "#c96"}, # la couleur par classe
+             template="simple_white") # couleur du fond
+fig.update_layout(font_family="Rockwell", # police du texte
+                  showlegend=False)
+fig.add_annotation(text="over target!", x="South Korea", # ajouter un texte avec une flèche
+                   y=49, arrowhead=1, showarrow=True)
+fig.add_shape(type="line", line_color="salmon", line_width=3, opacity=1, line_dash="dot", #najouter une ligne horizontale
+              x0=0, x1=1, xref="paper", y0=40, y1=40, yref="y")
+plot(fig)
+```
+
+<p align="center">
+<img width="1131" alt="Capture d’écran 2020-11-23 à 20 50 08" src="https://user-images.githubusercontent.com/63207451/100008283-83571500-2dcd-11eb-9011-a36d86335e10.png">
+<p/>
+
+### Deuxième exemple
+
+```py
+fig = go.Figure(go.Pie(
+    name = "",
+    title = "languages populaire",
+    values = [2, 5, 3, 2.5],
+    labels = ["R", "Python", "Java Script", "Matlab"],
+    text = ["textA", "TextB", "TextC", "TextD"],
+    hovertemplate = "%{label}: <br>Popularity: %{percent} </br> %{text}"  # ce qu'on voit en passant la souris dessus
+))
+plot(fig)
+```
+
+<p align="center">
+<img width="901" alt="Capture d’écran 2020-11-23 à 20 52 48" src="https://user-images.githubusercontent.com/63207451/100008564-e5177f00-2dcd-11eb-8a5a-740cc6177d08.png">
+<p/>
 
 
 
@@ -68,6 +112,7 @@ import numpy as np
 # Matplotlib.pyplot
 <br/>
 Installation :
+
 <br/>
 
 ```py
