@@ -501,6 +501,7 @@ plot(fig)
 <p align="center">
 <img width="1166" alt="Capture d’écran 2020-11-23 à 21 47 50" src="https://user-images.githubusercontent.com/63207451/100015002-8d7e1100-2dd7-11eb-8f25-14d3424f0daa.png">	
 <p/>
+
 <br/>
 <p align="center">
 <a href="#introduction"> retour au sommaire </a>
@@ -528,9 +529,66 @@ fig.update_layout(
 plot(fig)
 ```
 
+<br/>
+<p align="center">
+<img width="1166" alt="Capture d’écran 2020-11-23 à 22 11 39" src="https://user-images.githubusercontent.com/63207451/100016645-08e0c200-2dda-11eb-8965-e8b24587f971.png">
+<p/>
+<br/>
+
 ### Graphe subplots
 
+```py
+df = px.data.iris() # pandas dataframe
+fig = make_subplots(rows=1, cols=2,subplot_titles=("Plot 1", "Plot 2")) #titre de chaque subplot
+fig.add_trace(go.Scatter(x=df["sepal_width"], y=df["sepal_length"]),1,1)
+fig.add_trace(go.Scatter(x=df["sepal_width"], y=df["sepal_length"]),1,2)
+fig.update_layout(title_text="subplot")
+# pour changer les axes de chaque subplot :
+fig.update_xaxes(title_text="xaxis 1 title", showgrid=False, row=1, col=1) # sans grid x
+fig.update_xaxes(title_text="xaxis 2 title", range=[0, 10], row=1, col=2)
+fig.update_yaxes(title_text="yaxis 1 title", showgrid=False,row=1, col=1) # sans grid y
+fig.update_yaxes(title_text="yaxis 2 title", range=[0, 10], row=1, col=2)
+plot(fig)
+```
+
+<br/>
+
+```py
+# pour avoir l'axe X en commun :
+fig = make_subplots(rows=3, cols=1, shared_xaxes=True, vertical_spacing=0.02)
+
+# pour avoir l'axe Y en commun
+fig = make_subplots(rows=2, cols=2, shared_yaxes=True)
+```
+
+<br/>
+<p align="center">
+ 
+<p/>
+<br/>
+
 ### Les types de subplot
+
+```
+xy: 2D Cartesian subplot type for scatter, bar, etc. This is the default if no type is specified.
+scene: 3D Cartesian subplot for scatter3d, cone, etc.
+polar: Polar subplot for scatterpolar, barpolar, etc.
+ternary: Ternary subplot for scatterternary.
+mapbox: Mapbox subplot for scattermapbox.
+domain: Subplot type for traces that are individually positioned. pie, parcoords, parcats, etc.
+trace type: A trace type name (e.g. bar, scattergeo, carpet, mesh, etc.) 
+which will be used to determine the appropriate subplot type for that trace.
+```
+
+<br/>
+<p align="center">
+ 	
+<p/>
+<br/>
+
+
+
+
 
 
 
