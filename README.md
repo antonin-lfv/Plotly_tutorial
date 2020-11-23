@@ -74,6 +74,7 @@ from plotly.subplots import make_subplots
 import pandas as pd
 import numpy as np
 ```
+<br/>
 
 ## Première approche
 
