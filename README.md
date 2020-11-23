@@ -496,6 +496,7 @@ fig = px.scatter_ternary(df, a="Joly", b="Coderre", c="Bergeron", color="winner"
                    size_max=15, color_discrete_map = {"Joly": "blue", "Bergeron": "green", "Coderre":"red"} )
 plot(fig)
 ```
+
 <br/>
 <p align="center">
 <img width="1166" alt="Capture d’écran 2020-11-23 à 21 47 50" src="https://user-images.githubusercontent.com/63207451/100015002-8d7e1100-2dd7-11eb-8f25-14d3424f0daa.png">	
@@ -506,9 +507,11 @@ plot(fig)
 <p/>
 
 <br/>
+
 ## Graphiques multiples - Subplots
 
 <br/>
+
 ### Pie subplots
 
 ```py
