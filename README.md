@@ -94,6 +94,8 @@ plot(fig)
 <img width="901" alt="Capture d’écran 2020-11-23 à 20 52 48" src="https://user-images.githubusercontent.com/63207451/100008564-e5177f00-2dcd-11eb-8a5a-740cc6177d08.png">
 <p/>
 
+<br/>
+
 ## Fonctions principales plotly.express
 
 <br/>
@@ -109,151 +111,236 @@ plot(fig)
 ### Courbe de tendance et densité
 
 ```py
-
+df = px.data.iris()
+fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species",marginal_y="violin",
+                 marginal_x="box", trendline="ols", template="simple_white")
+# trendline = ols pour lineaire et lowess pour non linéaire
+plot(fig)
 ```
 
 ### Error bars
 
 ```py
-
+df = px.data.iris()
+df["e"] = df["sepal_width"]/100
+fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species", error_x="e", error_y="e")
+plot(fig)
 ```
 
 ### Bar charts
 
 ```py
-
+df = px.data.tips()
+fig = px.bar(df, x="sex", y="total_bill", color="smoker", barmode="group")
+# barmode="group" pour séparer les bars par color
+plot(fig)
 ```
 
 ### Graphiques de corrélations
 
 ```py
-
+df = px.data.iris()
+fig = px.scatter_matrix(df, dimensions=["sepal_width", "sepal_length", "petal_width", "petal_length"], color="species")
+plot(fig)
 ```
 
 ### Scatter plot avec échelle des tailles des points
 
 ```py
-
+df = px.data.gapminder()
+fig = px.scatter(df.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
+           hover_name="country", log_x=True, size_max=60)
+plot(fig)
 ```
 
 ### Plot avec animation
 
 ```py
-
+df = px.data.gapminder()
+fig = px.scatter(df, x="gdpPercap", y="lifeExp", animation_frame="year", animation_group="country",
+           size="pop", color="continent", hover_name="country", facet_col="continent",
+           log_x=True, size_max=45, range_x=[100,100000], range_y=[25,90])
+# facet_col pour couper les données en plusieurs colonnes
+plot(fig)
 ```
 
 ### Line charts
 
 ```py
-
+df = px.data.gapminder()
+fig = px.line(df, x="year", y="lifeExp", color="continent", line_group="country", hover_name="country",
+        line_shape="spline", render_mode="svg")
+plot(fig)
 ```
 
 ### Area charts
 
 ```py
-
+df = px.data.gapminder()
+fig = px.area(df, x="year", y="pop", color="continent", line_group="country")
+plot(fig)
 ```
 
 ### Pie charts
 
 ```py
-
+df = px.data.gapminder().query("year == 2007").query("continent == 'Europe'")
+df.loc[df['pop'] < 2.e6, 'country'] = 'Other countries' # Represent only large countries
+fig = px.pie(df, values='pop', names='country', title='Population of European continent')
+fig.update_traces(textposition='inside', textinfo='percent+label')
+plot(fig)
 ```
 
 ### Pie charts avec partie en dehors
 
 ```py
+labels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
+values = [4500, 2500, 1053, 500]
 
+# pull is given as a fraction of the pie radius
+fig = go.Figure(data=[go.Pie(labels=labels, values=values, pull=[0, 0, 0.2, 0])])
+plot(fig)
 ```
 
 ### Donut charts
 
 ```py
-
+labels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
+values = [4500, 2500, 1053, 500]
+# Use `hole` to create a donut-like pie chart
+fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3)])
+plot(fig)
 ```
 
 ### Sunburst charts
 
 ```py
-
+df = px.data.gapminder().query("year == 2007")
+fig = px.sunburst(df, path=['continent', 'country'], values='pop',
+                  color='lifeExp', hover_data=['iso_alpha'])
+plot(fig)
 ```
 
 ### Treemaps
 
 ```py
-
+df = px.data.gapminder().query("year == 2007")
+fig = px.treemap(df, path=[px.Constant('world'), 'continent', 'country'], values='pop',
+                  color='lifeExp', hover_data=['iso_alpha'])
+plot(fig)
 ```
 
 ### Histograms
 
 ```py
-
+df = px.data.tips()
+fig = px.histogram(df, x="total_bill", y="tip", color="sex", hover_data=df.columns)
+plot(fig)
 ```
 
 ### Boxplots
 
 ```py
-
+df = px.data.tips()
+fig = px.box(df, x="day", y="total_bill", color="smoker", notched=True)
+plot(fig)
 ```
 
 ### Violon plots
 
 ```py
-
+df = px.data.tips()
+fig = px.violin(df, y="tip", x="smoker", color="sex", box=True, points="all", hover_data=df.columns)
+plot(fig)
 ```
 
 ### Density contours
 
 ```py
-
+df = px.data.iris()
+fig = px.density_contour(df, x="sepal_width", y="sepal_length")
+plot(fig)
 ```
 
 ### Heatmap
 
 ```py
+df = px.data.iris()
+fig = px.density_heatmap(df, x="sepal_width", y="sepal_length", marginal_y="histogram")
+plot(fig)
 
+fig = px.imshow([[1, 20, 30],
+                 [20, 1, 60],
+                 [30, 60, 1]])
+plot(fig)
 ```
 
 ### Point sur une carte
 
 ```py
-
+df = px.data.carshare()
+fig = px.scatter_mapbox(df, lat="centroid_lat", lon="centroid_lon", color="peak_hour", size="car_hours",
+                  color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=10,
+                  mapbox_style="carto-positron")
+plot(fig)
 ```
 
 ### Surface sur une carte
 
 ```py
+df = px.data.election()
+geojson = px.data.election_geojson()
 
+fig = px.choropleth_mapbox(df, geojson=geojson, color="Bergeron",
+                           locations="district", featureidkey="properties.district",
+                           center={"lat": 45.5517, "lon": -73.7073},
+                           mapbox_style="carto-positron", zoom=9)
+plot(fig)
 ```
 
 ### Polar plots
 
 ```py
-
+df = px.data.wind()
+fig = px.scatter_polar(df, r="frequency", theta="direction", color="strength", symbol="strength",
+            color_discrete_sequence=px.colors.sequential.Plasma_r)
+plot(fig)
 ```
 
 ### Polar bar charts
 
 ```py
-
+df = px.data.wind()
+fig = px.bar_polar(df, r="frequency", theta="direction", color="strength", template="plotly_dark",
+            color_discrete_sequence= px.colors.sequential.Plasma_r)
+plot(fig)
 ```
 
 ### Radar charts
 
 ```py
-
+df = px.data.wind()
+fig = px.line_polar(df, r="frequency", theta="direction", color="strength", line_close=True,
+            color_discrete_sequence=px.colors.sequential.Plasma_r)
+plot(fig)
 ```
 
 ### Coordonnées en 3D
 
 ```py
-
+df = px.data.election()
+fig = px.scatter_3d(df, x="Joly", y="Coderre", z="Bergeron", color="winner", size="total", hover_name="district",
+                  symbol="result", color_discrete_map = {"Joly": "blue", "Bergeron": "green", "Coderre":"red"})
+plot(fig)
 ```
 
 ### Ternary charts
 
 ```py
-
+df = px.data.election()
+fig = px.scatter_ternary(df, a="Joly", b="Coderre", c="Bergeron", color="winner", size="total", hover_name="district",
+                   size_max=15, color_discrete_map = {"Joly": "blue", "Bergeron": "green", "Coderre":"red"} )
+plot(fig)
 ```
 
 <p align="center">
