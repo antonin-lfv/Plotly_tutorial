@@ -614,6 +614,7 @@ plot(fig)
 <p align="center">
 <img width="1267" alt="Capture d’écran 2020-11-23 à 22 31 34" src="https://user-images.githubusercontent.com/63207451/100017787-bbfdeb00-2ddb-11eb-9ca5-603cca91a999.png">
 <p/>
+
 <br/>
 
 ## Slide bar
