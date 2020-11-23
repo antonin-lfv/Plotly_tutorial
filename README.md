@@ -41,6 +41,9 @@ Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __
 		- [Coordonnées en 3D](#coordonnées-en-3d)
 		- [Ternary charts](#ternary-charts)
 	- [Graphiques multiples - Subplots](#graphiques-multiples---subplots)
+		- [Pie subplots](#pie-subplots)
+		- [Graphe subplots](#graphe-subplots)
+		- [Les types de subplot](#les-types-de-subplot)
 	- [Graphiques en 3D](#graphiques-en-3d)
 	- [Slide bar](#slide-bar)
 - [Matplotlib.pyplot](#Matplotlib.pyplot)
@@ -505,8 +508,26 @@ plot(fig)
 <br/>
 ## Graphiques multiples - Subplots
 
+<br/>
+### Pie subplots
 
+```py
+labels = ["US", "China", "European Union", "Russian Federation", "Brazil", "India","Rest of World"]
+fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, {'type':'domain'}]]) # 'domain' for pie subplots
+fig.add_trace(go.Pie(labels=labels, values=[16, 15, 12, 6, 5, 4, 42], name="GHG Emissions"),1, 1)
+fig.add_trace(go.Pie(labels=labels, values=[27, 11, 25, 8, 1, 3, 25], name="CO2 Emissions"),1, 2)
+fig.update_traces(hole=.4, hoverinfo="label+percent+name")
+fig.update_layout(
+    title_text="Global Emissions 1990-2011",
+    # Add annotations in the center of the donut pies.
+    annotations=[dict(text='GHG', x=0.18, y=0.5, font_size=20, showarrow=False),
+                 dict(text='CO2', x=0.82, y=0.5, font_size=20, showarrow=False)])
+plot(fig)
+```
 
+### Graphe subplots
+
+### Les types de subplot
 
 
 
