@@ -13,6 +13,7 @@ Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __
 	- [Importations](#importations)
 	- [Première approche](#première-approche)
 		- [Premier exemple](#premier-exemple)
+		- [Deuxième exemple](#deuxième-exemple)
 	- [Fonctions principales plotly.express](#fonctions-principales-plotlyexpress)
 	- [Graphiques multiples - Subplots](#graphiques-multiples---subplots)
 	- [Graphiques en 3D](#graphiques-en-3d)
@@ -95,6 +96,34 @@ plot(fig)
 
 ## Fonctions principales plotly.express
 
+<br/>
+
+### Scatter plot
+### Courbe de tendance et densité
+### Error bars
+### Bar charts
+### Graphiques de corrélations
+### Scatter plot avec échelle des tailles des points
+### Plot avec animation
+### Line charts
+### Area charts
+### Pie charts
+### Pie charts avec partie en dehors
+### Donut charts
+### Sunburst charts
+### Treemaps
+### Histograms
+### Boxplots
+### Violon plots
+### Density contours
+### Heatmap
+### Point sur une carte
+### Surface sur une carte
+### Polar plots
+### Polar bar charts
+### Radar charts
+### Coordonnées en 3D
+### Ternary charts
 
 
 
