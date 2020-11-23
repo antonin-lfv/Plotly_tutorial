@@ -8,11 +8,21 @@ Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __
 
 ## Index
 - [Plotly](#Plotly)
+	- [Importations](#importations)
+	- [Commandes de bases graphique](#commandes-de-bases-graphique)
+	- [Fonctions principales plotly.express](#fonctions-principales-plotlyexpress)
+	- [Graphiques multiples - Subplots](#graphiques-multiples---subplots)
+	- [Graphiques en 3D](#graphiques-en-3d)
+	- [Custom controls](#custom-controls)
 - [Matplotlib.pyplot](#Matplotlib.pyplot)
+
+
+
 
 ## Plotly
 <br/>
 Installation :
+<br/>
 
 ```py
 pip install plotly
@@ -20,15 +30,31 @@ pip install plotly
 
 Documentation [Plotly](https://plotly.com/python/) .
 
+
+
+
 ## Matplotlib.pyplot
 <br/>
 Installation :
+<br/>
 
 ```py
 pip install matplotlib
 ```
 
 Documentation [Matplotlib.pyplot](https://matplotlib.org/3.3.1/api/_as_gen/matplotlib.pyplot.html) .
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
