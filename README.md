@@ -134,6 +134,11 @@ df = px.data.iris() # pandas dataframe
 fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species",title='Scatter')
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Courbe de tendance et densité
 
@@ -144,6 +149,11 @@ fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species",marginal
 # trendline = ols pour lineaire et lowess pour non linéaire
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Error bars
 
@@ -153,6 +163,11 @@ df["e"] = df["sepal_width"]/100
 fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species", error_x="e", error_y="e")
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Bar charts
 
@@ -162,6 +177,11 @@ fig = px.bar(df, x="sex", y="total_bill", color="smoker", barmode="group")
 # barmode="group" pour séparer les bars par color
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Graphiques de corrélations
 
@@ -170,6 +190,11 @@ df = px.data.iris()
 fig = px.scatter_matrix(df, dimensions=["sepal_width", "sepal_length", "petal_width", "petal_length"], color="species")
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Scatter plot avec échelle des tailles des points
 
@@ -179,6 +204,11 @@ fig = px.scatter(df.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop",
            hover_name="country", log_x=True, size_max=60)
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Plot avec animation
 
@@ -190,6 +220,11 @@ fig = px.scatter(df, x="gdpPercap", y="lifeExp", animation_frame="year", animati
 # facet_col pour couper les données en plusieurs colonnes
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Line charts
 
@@ -199,6 +234,11 @@ fig = px.line(df, x="year", y="lifeExp", color="continent", line_group="country"
         line_shape="spline", render_mode="svg")
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Area charts
 
@@ -207,6 +247,11 @@ df = px.data.gapminder()
 fig = px.area(df, x="year", y="pop", color="continent", line_group="country")
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Pie charts
 
@@ -217,6 +262,11 @@ fig = px.pie(df, values='pop', names='country', title='Population of European co
 fig.update_traces(textposition='inside', textinfo='percent+label')
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Pie charts avec partie en dehors
 
@@ -228,6 +278,11 @@ values = [4500, 2500, 1053, 500]
 fig = go.Figure(data=[go.Pie(labels=labels, values=values, pull=[0, 0, 0.2, 0])])
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Donut charts
 
@@ -238,6 +293,11 @@ values = [4500, 2500, 1053, 500]
 fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3)])
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Sunburst charts
 
@@ -247,6 +307,11 @@ fig = px.sunburst(df, path=['continent', 'country'], values='pop',
                   color='lifeExp', hover_data=['iso_alpha'])
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Treemaps
 
@@ -256,6 +321,11 @@ fig = px.treemap(df, path=[px.Constant('world'), 'continent', 'country'], values
                   color='lifeExp', hover_data=['iso_alpha'])
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Histograms
 
@@ -264,6 +334,11 @@ df = px.data.tips()
 fig = px.histogram(df, x="total_bill", y="tip", color="sex", hover_data=df.columns)
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Boxplots
 
@@ -272,6 +347,11 @@ df = px.data.tips()
 fig = px.box(df, x="day", y="total_bill", color="smoker", notched=True)
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Violon plots
 
@@ -280,6 +360,11 @@ df = px.data.tips()
 fig = px.violin(df, y="tip", x="smoker", color="sex", box=True, points="all", hover_data=df.columns)
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Density contours
 
@@ -288,6 +373,11 @@ df = px.data.iris()
 fig = px.density_contour(df, x="sepal_width", y="sepal_length")
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Heatmap
 
@@ -301,6 +391,11 @@ fig = px.imshow([[1, 20, 30],
                  [30, 60, 1]])
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Point sur une carte
 
@@ -311,6 +406,11 @@ fig = px.scatter_mapbox(df, lat="centroid_lat", lon="centroid_lon", color="peak_
                   mapbox_style="carto-positron")
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Surface sur une carte
 
@@ -324,6 +424,11 @@ fig = px.choropleth_mapbox(df, geojson=geojson, color="Bergeron",
                            mapbox_style="carto-positron", zoom=9)
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Polar plots
 
@@ -333,6 +438,11 @@ fig = px.scatter_polar(df, r="frequency", theta="direction", color="strength", s
             color_discrete_sequence=px.colors.sequential.Plasma_r)
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Polar bar charts
 
@@ -342,6 +452,11 @@ fig = px.bar_polar(df, r="frequency", theta="direction", color="strength", templ
             color_discrete_sequence= px.colors.sequential.Plasma_r)
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Radar charts
 
@@ -351,6 +466,11 @@ fig = px.line_polar(df, r="frequency", theta="direction", color="strength", line
             color_discrete_sequence=px.colors.sequential.Plasma_r)
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Coordonnées en 3D
 
@@ -360,6 +480,11 @@ fig = px.scatter_3d(df, x="Joly", y="Coderre", z="Bergeron", color="winner", siz
                   symbol="result", color_discrete_map = {"Joly": "blue", "Bergeron": "green", "Coderre":"red"})
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
 
 ### Ternary charts
 
@@ -369,6 +494,18 @@ fig = px.scatter_ternary(df, a="Joly", b="Coderre", c="Bergeron", color="winner"
                    size_max=15, color_discrete_map = {"Joly": "blue", "Bergeron": "green", "Coderre":"red"} )
 plot(fig)
 ```
+<br/>
+<p align="center">
+	
+<p/>
+<br/>
+
+
+
+
+
+
+
 
 <p align="center">
 <a href="#introduction"> retour au sommaire </a>
