@@ -503,11 +503,6 @@ plot(fig)
 <p/>
 
 <br/>
-<p align="center">
-<a href="#introduction"> retour au sommaire </a>
-<p/>
-
-<br/>
 
 ## Graphiques multiples - Subplots
 
@@ -586,7 +581,46 @@ trace type: A trace type name (e.g. bar, scattergeo, carpet, mesh, etc.)
 which will be used to determine the appropriate subplot type for that trace.
 ```
 
+## Graphiques en 3D
 
+<br/>
+
+### Surface
+
+```py
+z_data = df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/volcano.csv")
+fig = go.Figure(data=[go.Surface(z=z_data, colorscale='IceFire')]) # Z1 liste de liste
+fig.update_layout(title='Mont Anto')
+plot(fig)
+```
+
+<br/>
+<p align="center">
+<img width="1267" alt="Capture d’écran 2020-11-23 à 22 30 54" src="https://user-images.githubusercontent.com/63207451/100017741-ad173880-2ddb-11eb-8643-78795b0e3e57.png">
+<p/>
+<br/>
+
+### Nuage de points
+
+```py
+df = px.data.iris()
+fig = px.scatter_3d(df, x='sepal_length', y='sepal_width', z='petal_width',
+              color='species', size='petal_length', size_max=18,symbol='species', opacity=0.7)
+plot(fig)
+```
+<br/>
+<p align="center">
+<img width="1267" alt="Capture d’écran 2020-11-23 à 22 31 34" src="https://user-images.githubusercontent.com/63207451/100017787-bbfdeb00-2ddb-11eb-9ca5-603cca91a999.png">
+<p/>
+<br/>
+
+## Slide bar
+
+
+<br/>
+<p align="center">
+<a href="#introduction"> retour au sommaire </a>
+<p/>
 
 
 
