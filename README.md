@@ -41,7 +41,7 @@ import pandas as pd
 import numpy as np
 ```
 
-
+## Commandes de bases graphiques
 
 
 
