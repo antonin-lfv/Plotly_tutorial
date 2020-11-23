@@ -748,7 +748,7 @@ plot(fig)
 
 <br/>
 <p align="center">
-<a href="#plotly-and-matplotlibpyplot-tutorial"> haut de la page </a>
+<a href="#plotly-tutorial"> haut de la page </a>
 	
 <p/>
 <p align="center">
