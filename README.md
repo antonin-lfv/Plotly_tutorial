@@ -11,7 +11,8 @@ Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __
 ## Index
 - [Plotly](#Plotly)
 	- [Importations](#importations)
-	- [Commandes de bases graphique](#commandes-de-bases-graphique)
+	- [Première approche](#première-approche)
+		- [Premier exemple](#premier-exemple)
 	- [Fonctions principales plotly.express](#fonctions-principales-plotlyexpress)
 	- [Graphiques multiples - Subplots](#graphiques-multiples---subplots)
 	- [Graphiques en 3D](#graphiques-en-3d)
@@ -47,7 +48,7 @@ import pandas as pd
 import numpy as np
 ```
 
-## Commandes de bases graphique
+## Première approche
 
 <br/>
 
