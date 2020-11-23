@@ -391,8 +391,7 @@ plot(fig)
 
 # Matplotlib.pyplot
 <br/>
-Installation :
-
+Installation :<br/>
 <br/>
 
 ```py
