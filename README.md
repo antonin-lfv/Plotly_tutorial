@@ -48,6 +48,9 @@ Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __
 		- [Surface](#surface)
 		- [Nuage de points](#nuage-de-points)
 	- [Slide bar](#slide-bar)
+		- [Interactive plots](#interactive-plots)
+		- [Sliders](#sliders)
+		- [Sliders et sélecteur d'intervalles](#sliders-et-sélecteur-dintervalles)
 - [Matplotlib.pyplot](#Matplotlib.pyplot)
 
 <br/>
