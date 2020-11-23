@@ -29,6 +29,31 @@ pip install plotly
 ```
 
 Documentation [Plotly](https://plotly.com/python/) .
+<br/>
+
+###Importations
+
+#### test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -43,16 +68,7 @@ pip install matplotlib
 ```
 
 Documentation [Matplotlib.pyplot](https://matplotlib.org/3.3.1/api/_as_gen/matplotlib.pyplot.html) .
-
-
-
-
-
-
-
-
-
-
+<br/>
 
 
 
