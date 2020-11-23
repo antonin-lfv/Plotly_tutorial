@@ -1,4 +1,4 @@
-# Plotly and Matplotlib.pyplot tutorial 
+# Plotly and Matplotlib.pyplot tutorial
 <br/>
 
 ## Introduction
