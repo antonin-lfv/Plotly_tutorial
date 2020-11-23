@@ -19,7 +19,7 @@ Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __
 
 
 
-## Plotly
+# Plotly
 <br/>
 Installation :
 <br/>
@@ -58,7 +58,7 @@ Documentation [Plotly](https://plotly.com/python/) .
 
 
 
-## Matplotlib.pyplot
+# Matplotlib.pyplot
 <br/>
 Installation :
 <br/>
