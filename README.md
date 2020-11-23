@@ -1,8 +1,10 @@
 # Plotly and Matplotlib.pyplot tutorial
 <br/>
-
+<a href="https://www.python.org" class="fancybox" ><img align="right" width="110" height="110" src="https://user-images.githubusercontent.com/63207451/97306728-26fce600-185f-11eb-9784-14151a6b2c43.png"><a/>
+	
 ## Introduction
 
+Ce projet à pour objectif de présenter les modules Matplotlib.pyplot et Plotly qui sont les modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Dans ce README toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom code.py .
 
 ## Index
 - [Plotly](#Plotly)
