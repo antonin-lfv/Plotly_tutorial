@@ -136,7 +136,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-	
+<img width="1184" alt="Capture d’écran 2020-11-23 à 21 41 58" src="https://user-images.githubusercontent.com/63207451/100013856-cddc8f80-2dd5-11eb-8dac-85110bdda97e.png">	
 <p/>
 <br/>
 
