@@ -3,8 +3,10 @@
 <a href="https://www.python.org" class="fancybox" ><img align="right" width="110" height="110" src="https://user-images.githubusercontent.com/63207451/97306728-26fce600-185f-11eb-9784-14151a6b2c43.png"><a/>
 	
 ## Introduction
-<br/>
+
 Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __Plotly__ qui sont les modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Dans ce __README__ toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom __code.py__ .
+
+<br/>
 
 ## Index
 - [Plotly](#Plotly)
@@ -28,7 +30,7 @@ Installation :
 ```py
 pip install plotly
 ```
-
+<br/>
 Documentation [Plotly](https://plotly.com/python/) .
 <br/>
 
@@ -67,6 +69,7 @@ fig.add_shape(type="line", line_color="salmon", line_width=3, opacity=1, line_da
 plot(fig)
 ```
 
+<br/>
 <p align="center">
 <img width="1131" alt="Capture d’écran 2020-11-23 à 20 50 08" src="https://user-images.githubusercontent.com/63207451/100008283-83571500-2dcd-11eb-9011-a36d86335e10.png">
 <p/>
@@ -84,7 +87,7 @@ fig = go.Figure(go.Pie(
 ))
 plot(fig)
 ```
-
+<br/>
 <p align="center">
 <img width="901" alt="Capture d’écran 2020-11-23 à 20 52 48" src="https://user-images.githubusercontent.com/63207451/100008564-e5177f00-2dcd-11eb-8a5a-740cc6177d08.png">
 <p/>
