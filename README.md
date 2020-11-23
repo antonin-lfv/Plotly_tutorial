@@ -257,7 +257,7 @@ plot(fig)
 ```
 
 <p align="center">
-<a href="#index"> retour au sommaire </a>
+<a href="#introduction"> retour au sommaire </a>
 <p/>
 
 
