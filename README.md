@@ -484,7 +484,7 @@ plot(fig)
 ```
 <br/>
 <p align="center">
-<img width="1166" alt="Capture d’écran 2020-11-23 à 21 47 35" src="https://user-images.githubusercontent.com/63207451/100014978-835c1280-2dd7-11eb-8bcf-f0f2893fe247.png">	
+<img width="1267" alt="Capture d’écran 2020-11-23 à 22 33 48" src="https://user-images.githubusercontent.com/63207451/100017987-02534a00-2ddc-11eb-8d5e-08b43e4f9516.png">	
 <p/>
 <br/>
 
