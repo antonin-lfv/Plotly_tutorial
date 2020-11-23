@@ -55,6 +55,7 @@ Installation :
 
 <br/>
 
+
 ```py
 pip install plotly
 ```
