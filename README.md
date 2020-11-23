@@ -99,33 +99,166 @@ plot(fig)
 <br/>
 
 ### Scatter plot
+
+```py
+df = px.data.iris() # pandas dataframe
+fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species",title='Scatter')
+plot(fig)
+```
+
 ### Courbe de tendance et densité
+
+```py
+
+```
+
 ### Error bars
+
+```py
+
+```
+
 ### Bar charts
+
+```py
+
+```
+
 ### Graphiques de corrélations
+
+```py
+
+```
+
 ### Scatter plot avec échelle des tailles des points
+
+```py
+
+```
+
 ### Plot avec animation
+
+```py
+
+```
+
 ### Line charts
+
+```py
+
+```
+
 ### Area charts
+
+```py
+
+```
+
 ### Pie charts
+
+```py
+
+```
+
 ### Pie charts avec partie en dehors
+
+```py
+
+```
+
 ### Donut charts
+
+```py
+
+```
+
 ### Sunburst charts
+
+```py
+
+```
+
 ### Treemaps
+
+```py
+
+```
+
 ### Histograms
+
+```py
+
+```
+
 ### Boxplots
+
+```py
+
+```
+
 ### Violon plots
+
+```py
+
+```
+
 ### Density contours
+
+```py
+
+```
+
 ### Heatmap
+
+```py
+
+```
+
 ### Point sur une carte
+
+```py
+
+```
+
 ### Surface sur une carte
+
+```py
+
+```
+
 ### Polar plots
+
+```py
+
+```
+
 ### Polar bar charts
+
+```py
+
+```
+
 ### Radar charts
+
+```py
+
+```
+
 ### Coordonnées en 3D
+
+```py
+
+```
+
 ### Ternary charts
 
+```py
 
+```
+
+<p align="center">
+<a href="#index"> retour au sommaire </a>
+<p/>
 
 
 
@@ -161,8 +294,7 @@ Documentation [Matplotlib.pyplot](https://matplotlib.org/3.3.1/api/_as_gen/matpl
 
 
 <p align="center">
-<a href="#plotly-and-matplotlibpyplot-tutorial"> haut de la page 
-	</a>
+<a href="#plotly-and-matplotlibpyplot-tutorial"> haut de la page </a>
 <p/>
 <p align="center">
   <a href="https://github.com/antonin-lfv" class="fancybox" ><img src="https://user-images.githubusercontent.com/63207451/97302854-e484da80-1859-11eb-9374-5b319ca51197.png" title="GitHub" width="40" height="40"></a>
