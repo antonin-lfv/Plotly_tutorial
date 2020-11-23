@@ -51,6 +51,9 @@ Ce projet à pour objectif de présenter les modules __Matplotlib.pyplot__ et __
 		- [Interactive plots](#interactive-plots)
 		- [Sliders](#sliders)
 		- [Sliders et sélecteur d'intervalles](#sliders-et-sélecteur-dintervalles)
+		
+		<br/>
+		
 - [Matplotlib.pyplot](#Matplotlib.pyplot)
 
 <br/>
@@ -765,7 +768,7 @@ Documentation [Matplotlib.pyplot](https://matplotlib.org/3.3.1/api/_as_gen/matpl
 
 
 
-
+<br/>
 <p align="center">
 <a href="#plotly-and-matplotlibpyplot-tutorial"> haut de la page </a>
 <p/>
