@@ -14,7 +14,7 @@
 
 
 <p align="center">
-<a href="#Plotly-and-Matplotlib.pyplot-tutorial"> haut de la page 
+<a href="#Plotly-and-Matplotlibpyplot-tutorial"> haut de la page 
 	</a>
 <p/>
 <p align="center">
