@@ -583,6 +583,8 @@ trace type: A trace type name (e.g. bar, scattergeo, carpet, mesh, etc.)
 which will be used to determine the appropriate subplot type for that trace.
 ```
 
+<br/>
+
 ## Graphiques en 3D
 
 <br/>
