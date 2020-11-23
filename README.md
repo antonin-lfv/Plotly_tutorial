@@ -745,11 +745,11 @@ plot(fig)
 <img width="1267" alt="Capture d’écran 2020-11-23 à 22 47 10" src="https://user-images.githubusercontent.com/63207451/100019545-860e3600-2dde-11eb-8bd2-01372384f569.png">
 <p/>
 
+# Machine Learning
+
 <br/>
 <p align="center">
 <a href="#plotly-tutorial"> haut de la page </a>
-
-# Machine Learning
 
 <p/>
 <p align="center">
