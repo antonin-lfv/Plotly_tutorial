@@ -33,6 +33,7 @@ Installation :
 pip install plotly
 ```
 <br/>
+
 Documentation [Plotly](https://plotly.com/python/) .
 <br/>
 
