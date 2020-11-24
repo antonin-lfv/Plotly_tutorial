@@ -775,24 +775,26 @@ fig.show()
 
 ## Regression surfacique en 3D
 
+Le contenu de df_final est disponible dans les fichiers du github.
+
 ```py
 from sklearn.svm import SVR
 
 mesh_size = .02
 margin = 0
 
-df = px.data.iris()
+df = df_final
 
-X = df[['sepal_width', 'sepal_length']]
-y = df['petal_width']
+X = df[['x', 'y']]
+y = df['hauteurs']
 
 # Condition the model on sepal width and length, predict the petal width
 model = SVR(C=1.)
 model.fit(X, y)
 
 # Create a mesh grid on which we will run our model
-x_min, x_max = X.sepal_width.min() - margin, X.sepal_width.max() + margin
-y_min, y_max = X.sepal_length.min() - margin, X.sepal_length.max() + margin
+x_min, x_max = X.x.min() - margin, X.x.max() + margin
+y_min, y_max = X.y.min() - margin, X.y.max() + margin
 xrange = np.arange(x_min, x_max, mesh_size)
 yrange = np.arange(y_min, y_max, mesh_size)
 xx, yy = np.meshgrid(xrange, yrange)
@@ -802,15 +804,15 @@ pred = model.predict(np.c_[xx.ravel(), yy.ravel()])
 pred = pred.reshape(xx.shape)
 
 # Generate the plot
-fig = px.scatter_3d(df, x='sepal_width', y='sepal_length', z='petal_width')
+fig = px.scatter_3d(df, x='x', y='y', z='hauteurs')
 fig.update_traces(marker=dict(size=5))
 fig.add_traces(go.Surface(x=xrange, y=yrange, z=pred, name='pred_surface'))
-fig.show()
+plot(fig)
 ```
 
 <br/>
 <p align="center">
-<img width="1093" alt="Capture d’écran 2020-11-24 à 10 46 40" src="https://user-images.githubusercontent.com/63207451/100077647-e5059680-2e42-11eb-987c-5404228937fd.png">
+<img width="1093" alt="Capture d’écran 2020-11-24 à 11 25 44" src="https://user-images.githubusercontent.com/63207451/100082229-411ee980-2e48-11eb-89c2-4a480a5eb613.png">
 <p/>
 
 
