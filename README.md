@@ -768,6 +768,11 @@ fig.add_traces(go.Scatter(x=x_range, y=y_range, name='Regression Fit'))
 fig.show()
 ```
 
+<br/>
+<p align="center">
+<img width="1166" alt="Capture d’écran 2020-11-24 à 10 45 21" src="https://user-images.githubusercontent.com/63207451/100077394-9821c000-2e42-11eb-9700-8f103b2000c5.png">
+<p/>
+
 ## Regression surfacique en 3D
 
 ```py
@@ -805,7 +810,13 @@ fig.show()
 
 <br/>
 <p align="center">
-<a href="#plotly-tutorial"> haut de la page </a>
+<img width="1093" alt="Capture d’écran 2020-11-24 à 10 46 40" src="https://user-images.githubusercontent.com/63207451/100077647-e5059680-2e42-11eb-987c-5404228937fd.png">
+<p/>
+
+
+<br/>
+<p align="center">
+<a href="#plotly-tutorial---data-analysis-and-machine-learning"> haut de la page </a>
 
 <p/>
 <p align="center">
