@@ -69,26 +69,10 @@ fig = px.bar(df, x="sex", y="total_bill", color="smoker", barmode="group")
 # barmode="group" pour séparer les bars par color
 plot(fig)
 
-"bar charts avec plusieurs paramètres et fenetres"
-
-df = px.data.tips()
-fig = px.bar(df, x="sex", y="total_bill", color="smoker", barmode="group", facet_row="time", facet_col="day",
-       category_orders={"day": ["Thur", "Fri", "Sat", "Sun"], "time": ["Lunch", "Dinner"]})
-plot(fig)
-
 "graphes corrélations"
 
 df = px.data.iris()
 fig = px.scatter_matrix(df, dimensions=["sepal_width", "sepal_length", "petal_width", "petal_length"], color="species")
-plot(fig)
-
-"parallel coordinates"
-
-df = px.data.iris()
-fig = px.parallel_coordinates(df, color="species_id", labels={"species_id": "Species",
-                  "sepal_width": "Sepal Width", "sepal_length": "Sepal Length",
-                  "petal_width": "Petal Width", "petal_length": "Petal Length", },
-                    color_continuous_scale=px.colors.diverging.Tealrose, color_continuous_midpoint=2)
 plot(fig)
 
 "scatter avec échelle de taille des points"
@@ -105,13 +89,6 @@ fig = px.scatter(df, x="gdpPercap", y="lifeExp", animation_frame="year", animati
            size="pop", color="continent", hover_name="country", facet_col="continent",
            log_x=True, size_max=45, range_x=[100,100000], range_y=[25,90])
 # facet_col pour couper les données en plusieurs colonnes
-plot(fig)
-
-"line charts - évolution de l'esperance de vie par année par continent"
-
-df = px.data.gapminder()
-fig = px.line(df, x="year", y="lifeExp", color="continent", line_group="country", hover_name="country",
-        line_shape="spline", render_mode="svg")
 plot(fig)
 
 "area charts"
@@ -183,12 +160,6 @@ df = px.data.iris()
 fig = px.density_contour(df, x="sepal_width", y="sepal_length")
 plot(fig)
 
-"density contours per features"
-
-df = px.data.iris()
-fig = px.density_contour(df, x="sepal_width", y="sepal_length", color="species", marginal_y="histogram")
-plot(fig)
-
 "heatmap"
 
 df = px.data.iris()
@@ -217,20 +188,6 @@ fig = px.choropleth_mapbox(df, geojson=geojson, color="Bergeron",
                            locations="district", featureidkey="properties.district",
                            center={"lat": 45.5517, "lon": -73.7073},
                            mapbox_style="carto-positron", zoom=9)
-plot(fig)
-
-"taille population par ville sur la MAP MONDE animation par année"
-
-df = px.data.gapminder()
-fig = px.scatter_geo(df, locations="iso_alpha", color="continent", hover_name="country", size="pop",
-               animation_frame="year", projection="natural earth")
-plot(fig)
-
-"esperance de vie par pays sur la MAP MONDE animation par année"
-
-df = px.data.gapminder()
-fig = px.choropleth(df, locations="iso_alpha", color="lifeExp", hover_name="country", animation_frame="year"
-                    , range_color=[20,80])
 plot(fig)
 
 "polar plots"
@@ -451,38 +408,7 @@ plot(fig)
 
 "Regression surfacique"
 
-from sklearn.svm import SVR
-
-mesh_size = .02
-margin = 0
-
-df = px.data.iris()
-
-X = df[['sepal_width', 'sepal_length']]
-y = df['petal_width']
-
-# Condition the model on sepal width and length, predict the petal width
-model = SVR(C=1.)
-model.fit(X, y)
-
-# Create a mesh grid on which we will run our model
-x_min, x_max = X.sepal_width.min() - margin, X.sepal_width.max() + margin
-y_min, y_max = X.sepal_length.min() - margin, X.sepal_length.max() + margin
-xrange = np.arange(x_min, x_max, mesh_size)
-yrange = np.arange(y_min, y_max, mesh_size)
-xx, yy = np.meshgrid(xrange, yrange)
-
-# Run model
-pred = model.predict(np.c_[xx.ravel(), yy.ravel()])
-pred = pred.reshape(xx.shape)
-
-# Generate the plot
-fig = px.scatter_3d(df, x='sepal_width', y='sepal_length', z='petal_width')
-fig.update_traces(marker=dict(size=5))
-fig.add_traces(go.Surface(x=xrange, y=yrange, z=pred, name='pred_surface'))
-plot(fig)
-
-# test avec surface -------------------------------------------
+# surface données : 
 
 z1=[0,0,0,1,2,2,2,3,4,5,5,5,5,5,4,4,5,4,4,4,4,3,3,2,2]
 z2=[0,1,1,2,2,3,3,3,4,5,6,6,6,5,5,5,6,5,5,5,4,4,3,3,3]
@@ -516,6 +442,7 @@ lis=[]
 for j in Z1:
     for i in j:
         lis.append(i)
+        
 df_z = pd.DataFrame(lis)
 df_z.columns=['hauteurs']
 
@@ -527,11 +454,13 @@ for i in range (25):
     for j in range (25):
         ylis.append(i)
 df_ylis=pd.DataFrame(ylis)
+
 df_2d=pd.concat([df_xlis,df_ylis],axis=1)
 df_2d.columns=['x','y']
 
 df_final = pd.concat([df_z,df_2d], axis=1)
 
+# Création du modèle :
 
 from sklearn.svm import SVR
 
@@ -543,7 +472,7 @@ df = df_final
 X = df[['x', 'y']]
 y = df['hauteurs']
 
-# Condition the model on sepal width and length, predict the petal width
+# Condition the model on x and y, predict z
 model = SVR(C=1.)
 model.fit(X, y)
 
