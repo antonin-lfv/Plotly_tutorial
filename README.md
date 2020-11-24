@@ -603,7 +603,7 @@ which will be used to determine the appropriate subplot type for that trace.
 ```py
 z_data = df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/volcano.csv")
 fig = go.Figure(data=[go.Surface(z=z_data, colorscale='IceFire')]) # Z1 liste de liste
-fig.update_layout(title='Mont Anto')
+fig.update_layout(title='Mountain')
 plot(fig)
 ```
 
