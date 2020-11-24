@@ -747,6 +747,25 @@ plot(fig)
 
 # Machine Learning
 
+## Regression linéaire
+
+```py
+from sklearn.linear_model import LinearRegression
+
+df = px.data.tips()
+X = df.total_bill.values.reshape(-1, 1)
+
+model = LinearRegression()
+model.fit(X, df.tip)
+
+x_range = np.linspace(X.min(), X.max(), 100)
+y_range = model.predict(x_range.reshape(-1, 1))
+
+fig = px.scatter(df, x='total_bill', y='tip', opacity=0.65)
+fig.add_traces(go.Scatter(x=x_range, y=y_range, name='Regression Fit'))
+fig.show()
+```
+
 <br/>
 <p align="center">
 <a href="#plotly-tutorial"> haut de la page </a>
