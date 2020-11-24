@@ -54,6 +54,7 @@ Ce projet à pour objectif de présenter le module __Plotly__ qui est l'un des m
 		
 		<br/>
 - [Machine Learning](#machine-learning)
+	- [Regression linéaire](#regression-linéaire)
 
 <br/>
 
