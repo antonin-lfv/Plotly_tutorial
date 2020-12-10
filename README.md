@@ -4,7 +4,7 @@
 	
 ## Introduction
 
-Ce projet à pour objectif de présenter le module __Plotly__ qui est l'un des modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Dans ce __README__ toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom __code.py__ .
+Ce projet à pour objectif de présenter le module __Plotly__ qui est l'un des modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Dans ce __README__ toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom __code.py__ . Plotly utilise comme structure de données de base les dataframe.
 <br/>
 
 ## Index
@@ -144,7 +144,7 @@ plot(fig)
 
 ```py
 df = px.data.iris() # pandas dataframe
-fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species",title='Scatter')
+fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species", title='Scatter')
 plot(fig)
 ```
 <br/>
@@ -172,7 +172,7 @@ plot(fig)
 
 ```py
 df = px.data.iris()
-df["e"] = df["sepal_width"]/100
+df["e"] = df["sepal_width"]/100 
 fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species", error_x="e", error_y="e")
 plot(fig)
 ```
