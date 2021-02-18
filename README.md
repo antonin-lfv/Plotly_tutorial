@@ -98,13 +98,13 @@ import numpy as np
 ```py
 wide_df = px.data.medals_wide()
 fig = px.bar(wide_df, x="nation", y=["gold", "silver", "bronze"],
-             title="Wide-Form Input, relabelled", # le titre
-             labels={"value": "count", "variable": "medal"}, # le nom des axes
+             title="Proportion des productions de Minerais", # le titre
+             labels={"value": "Production annuelle en Tonnes", "variable": "type"}, # le nom des axes
              color_discrete_map={"gold": "gold", "silver": "silver", "bronze": "#c96"}, # la couleur par classe
              template="simple_white") # couleur du fond
 fig.update_layout(font_family="Rockwell", # police du texte
                   showlegend=False)
-fig.add_annotation(text="over target!", x="South Korea", # ajouter un texte avec une flèche
+fig.add_annotation(text="Production supérieur à la demande", x="South Korea", # ajouter un texte avec une flèche
                    y=49, arrowhead=1, showarrow=True)
 fig.add_shape(type="line", line_color="salmon", line_width=3, opacity=1, line_dash="dot", #najouter une ligne horizontale
               x0=0, x1=1, xref="paper", y0=40, y1=40, yref="y")
@@ -113,7 +113,7 @@ plot(fig)
 
 <br/>
 <p align="center">
-<img width="1131" alt="Capture d’écran 2020-11-23 à 20 50 08" src="https://user-images.githubusercontent.com/63207451/100008283-83571500-2dcd-11eb-9011-a36d86335e10.png">
+<img src="https://user-images.githubusercontent.com/63207451/108405998-19120d00-7222-11eb-8e6e-2e62d9b96dc4.png">
 <p/>
 
 ### Deuxième exemple
