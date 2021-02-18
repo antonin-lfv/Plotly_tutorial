@@ -120,18 +120,16 @@ plot(fig)
 
 ```py
 fig = go.Figure(go.Pie(
-    name = "",
-    title = "languages populaire",
+    title = "languages populaires",
     values = [2, 5, 3, 2.5],
     labels = ["R", "Python", "Java Script", "Matlab"],
-    text = ["textA", "TextB", "TextC", "TextD"],
-    hovertemplate = "%{label}: <br>Popularity: %{percent} </br> %{text}"  # ce qu'on voit en passant la souris dessus
-))
+    text = ["R", "Python", "Js", "Matlab"],
+    hovertemplate = "%{label}: <br>Popularity: %{percent} </br> %{text}" # ce qu'on voit avec la souris dessus))
 plot(fig)
 ```
 <br/>
 <p align="center">
-<img width="901" alt="Capture d’écran 2020-11-23 à 20 52 48" src="https://user-images.githubusercontent.com/63207451/100008564-e5177f00-2dcd-11eb-8a5a-740cc6177d08.png">
+<img src="https://user-images.githubusercontent.com/63207451/108406210-64c4b680-7222-11eb-902f-908b25a84279.png">
 <p/>
 
 <br/>
