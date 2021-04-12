@@ -1,9 +1,12 @@
 <h1 align="center">Plotly tutorial - Data analysis and Machine learning </h1>
 <br/>
-<a href="https://www.python.org" class="fancybox" ><img align="right" width="110" height="110" src="https://user-images.githubusercontent.com/63207451/97306728-26fce600-185f-11eb-9784-14151a6b2c43.png"><a/>
-
 <p align="center">
-Ce projet à pour objectif de présenter le module __Plotly__ qui est l'un des modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Dans ce __README__ toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom __code.py__ . Plotly utilise comme structure de données de base les dataframe.
+<a href="https://www.python.org" class="fancybox" ><img align="right" width="70" height="70" src="https://user-images.githubusercontent.com/63207451/97306728-26fce600-185f-11eb-9784-14151a6b2c43.png"><a/>
+		<p/>
+<br/>
+	
+<p align="center">
+	Ce projet à pour objectif de présenter le module <b>Plotly</b> qui est l'un des modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Dans ce <b>README</b> toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom <b>code.py</b> . Plotly utilise comme structure de données de base les dataframe.
 <br/>
 	<p/>
 
