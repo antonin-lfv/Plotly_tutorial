@@ -1,8 +1,9 @@
-<h1 align="center">Plotly tutorial - Data analysis and Machine learning </h1>
-<br/>
 <p align="center">
-<a href="https://www.python.org" class="fancybox" ><img align="right" width="70" height="70" src="https://user-images.githubusercontent.com/63207451/97306728-26fce600-185f-11eb-9784-14151a6b2c43.png"><a/>
+<a href="https://www.python.org" class="fancybox" ><img width="70" height="70" src="https://user-images.githubusercontent.com/63207451/97306728-26fce600-185f-11eb-9784-14151a6b2c43.png"><a/>
 		<p/>
+<br/>
+
+<h1 align="center">Plotly tutorial - Data analysis and Machine learning </h1>
 <br/>
 	
 <p align="center">
