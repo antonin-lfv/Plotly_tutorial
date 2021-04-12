@@ -4,7 +4,7 @@
 	<p/>
 <br/>
 
-<h1 align="center">Plotly tutorial - Data analysis and Machine learning </h1>
+<h1 align="center">Plotly tutorial - Data analysis and Machine learning</h1>
 <br/>
 	
 <p align="center">
@@ -820,10 +820,8 @@ plot(fig)
 
 
 <br/>
-<p align="center">
-<a href="#plotly-tutorial---data-analysis-and-machine-learning"> haut de la page </a>
+<p align="center"><a href="#Plotly-tutorial---Data-analysis-and-Machine-learning"><img src="http://randojs.com/images/backToTopButton.png" alt="Haut de la page" height="29"/></a></p>
 
-<p/>
 <p align="center">
   <a href="https://github.com/antonin-lfv" class="fancybox" ><img src="https://user-images.githubusercontent.com/63207451/97302854-e484da80-1859-11eb-9374-5b319ca51197.png" title="GitHub" width="40" height="40"></a>
   <a href="https://www.linkedin.com/in/antonin-lefevre-565b8b141" class="fancybox" ><img src="https://user-images.githubusercontent.com/63207451/97303444-b2c04380-185a-11eb-8cfc-864c33a64e4b.png" title="LinkedIn" width="40" height="40"></a>
