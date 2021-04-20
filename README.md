@@ -12,7 +12,7 @@
 <br/>
 	<p/>
 
-Pour comprendre plus en détails comment plotly fonctionne, je vous invite à consulter mon [article]() sur plotly.
+Pour comprendre plus en détails comment plotly fonctionne, je vous invite à consulter mon [article](https://github.com/antonin-lfv/Plotly_tutorial/blob/main/README.md) sur plotly. ( bientôt disponible )
 <br/>
 
 ## Index
