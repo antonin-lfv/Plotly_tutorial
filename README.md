@@ -12,6 +12,9 @@
 <br/>
 	<p/>
 
+Pour comprendre plus en détails comment plotly fonctionne, je vous invite à consulter mon [article]() sur plotly.
+<br/>
+
 ## Index
 - [Analyse de données](#analyse-de-données)
 	- [Importations](#importations)
