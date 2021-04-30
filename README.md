@@ -68,8 +68,8 @@
 	- [Regression linéaire](#regression-linéaire)
 	- [Regression surfacique en 3D](#regression-surfacique-en-3d)
 	- [réduction de dimension](#réduction-de-dimension)
-	  	-[UMAP](#UMAP)
-		-[t-SNE](#t-SNE)
+	  	- [UMAP](#UMAP)
+		- [t-SNE](#t-SNE)
 
 <br/>
 
