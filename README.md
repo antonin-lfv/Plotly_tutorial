@@ -70,6 +70,7 @@
 	- [réduction de dimension](#réduction-de-dimension)
 	  	- [UMAP](#UMAP)
 		- [t-SNE](#t-SNE)
+	- [création réseau de neurones](#réseau-de-neurones)
 
 <br/>
 
@@ -892,6 +893,52 @@ plot(fig)
 <br/>
 <p align="center">
 <img width="1328" alt="Capture d’écran 2021-04-30 à 13 03 58" src="https://user-images.githubusercontent.com/63207451/116686752-8fff1b00-a9b4-11eb-8733-a3491e45f36e.png">
+<p/>
+
+## réseau-de-neurones
+
+```py
+# liens
+edge_x, edge_y = [1.5,3,None,1.5,3,None,1.5,3,None,1.5,3,None,1.5,3,None,1.5,3,None,3,4.5,None,3,4.5,None,3,4.5,None,3,4.5,None,3,4.5,None,3,4.5,None,3,4.5,None,],\
+                 [1,0,None,1,2,None,1,4,None,3,0,None,3,2,None,3,4,None,0,1,None,0,1,None,0,3,None,2,1,None,2,3,None,4,1,None,4,3,None,]
+# None pour couper la ligne
+edge_trace = go.Scatter(
+    x=edge_x, y=edge_y,
+    line=dict(width=2, color='#000000'),
+    hoverinfo='none',
+    mode='lines')
+
+# traçage des noeuds
+node_x, node_y = [1.5,1.5,3,3,3,4.5,4.5],\
+                 [1,3,0,2,4,1,3]
+node_trace = go.Scatter(
+    x=node_x, y=node_y,
+    mode='markers',
+    hoverinfo='text',
+    marker=dict(
+        color='green',
+        size=20,
+        line_width=1.5))
+
+# affichage
+fig = go.Figure(data=[edge_trace, node_trace],
+             layout=go.Layout(
+                titlefont_size=16,
+                showlegend=False,
+                hovermode='closest',
+                margin=dict(b=20,l=5,r=5,t=40),
+                xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                yaxis_range=[-6,10],
+                xaxis_range=[-5,11]
+             )
+             )
+plot(fig)
+```
+
+<br/>
+<p align="center">
+<img width="1014" alt="Capture d’écran 2021-04-30 à 13 24 07" src="https://user-images.githubusercontent.com/63207451/116688699-5aa7fc80-a9b7-11eb-8862-1a9307be0412.png">
 <p/>
 
 
