@@ -505,7 +505,37 @@ fig.update_traces(marker=dict(size=5))
 fig.add_traces(go.Surface(x=xrange, y=yrange, z=pred, name='pred_surface'))
 plot(fig)
 
+"UMAP"
 
+digits = load_digits()
+
+umap_2d = UMAP(random_state=0)
+umap_2d.fit(digits.data)
+
+projections = umap_2d.transform(digits.data)
+
+fig = px.scatter(
+    projections, x=0, y=1,
+    color=digits.target.astype(str), labels={'color': 'digit'}
+)
+plot(fig)
+
+
+"t-SNE"
+
+df = px.data.iris()
+
+features = df.loc[:, :'petal_width']
+
+tsne = TSNE(n_components=3, random_state=0)
+projections = tsne.fit_transform(features, )
+
+fig = px.scatter_3d(
+    projections, x=0, y=1, z=2,
+    color=df.species, labels={'color': 'species'}
+)
+fig.update_traces(marker_size=8)
+plot(fig)
 # ------------------------------------------
 
 
