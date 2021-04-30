@@ -8,7 +8,7 @@
 <br/>
 	
 <p align="center">
-	Ce projet à pour objectif de présenter le module <b>Plotly</b> qui est l'un des modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Dans ce <b>README</b> toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom <b>code.py</b> . Plotly utilise comme structure de données de base les dataframe.
+	Ce projet à pour objectif de présenter le module <b>Plotly</b> qui est l'un des modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Dans ce <b>README</b> toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom <b>code.py</b> . Plotly utilise comme structure de données de base les dataframes.
 <br/>
 	<p/>
 
