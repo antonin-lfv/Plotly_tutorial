@@ -849,7 +849,46 @@ plot(fig)
 
 ### UMAP
 
+```py
+digits = load_digits()
+umap_2d = UMAP(random_state=0)
+umap_2d.fit(digits.data)
+
+projections = umap_2d.transform(digits.data)
+fig = px.scatter(
+    projections, x=0, y=1,
+    color=digits.target.astype(str), labels={'color': 'digit'}
+)
+plot(fig)
+```
+
+<br/>
+<p align="center">
+<img width="1399" alt="Capture d’écran 2021-04-30 à 13 02 14" src="https://user-images.githubusercontent.com/63207451/116686674-6e9e2f00-a9b4-11eb-97e0-a65286464dc0.png">
+<p/>
+
+
 ### t-SNE
+
+```py
+df = px.data.iris()
+features = df.loc[:, :'petal_width']
+tsne = TSNE(n_components=3, random_state=0)
+projections = tsne.fit_transform(features, )
+
+fig = px.scatter_3d(
+    projections, x=0, y=1, z=2,
+    color=df.species, labels={'color': 'species'}
+)
+fig.update_traces(marker_size=8)
+plot(fig)
+```
+
+<br/>
+<p align="center">
+<img width="1328" alt="Capture d’écran 2021-04-30 à 13 03 58" src="https://user-images.githubusercontent.com/63207451/116686752-8fff1b00-a9b4-11eb-8733-a3491e45f36e.png">
+<p/>
+
 
 <br/>
 <p align="center"><a href="#Plotly-tutorial---Data-analysis-and-Machine-learning"><img src="http://randojs.com/images/backToTopButton.png" alt="Haut de la page" height="29"/></a></p>
