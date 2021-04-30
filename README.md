@@ -67,6 +67,9 @@
 - [Machine Learning](#machine-learning)
 	- [Regression linéaire](#regression-linéaire)
 	- [Regression surfacique en 3D](#regression-surfacique-en-3d)
+	- [réduction de dimension](#réduction-de-dimension)
+		-[UMAP](#UMAP)
+		-[t-SNE](#t-SNE)
 
 <br/>
 
@@ -842,6 +845,11 @@ plot(fig)
 <img width="1093" alt="Capture d’écran 2020-11-24 à 11 25 44" src="https://user-images.githubusercontent.com/63207451/100082229-411ee980-2e48-11eb-89c2-4a480a5eb613.png">
 <p/>
 
+## Réduction-de-dimension
+
+### UMAP
+
+### t-SNE
 
 <br/>
 <p align="center"><a href="#Plotly-tutorial---Data-analysis-and-Machine-learning"><img src="http://randojs.com/images/backToTopButton.png" alt="Haut de la page" height="29"/></a></p>
