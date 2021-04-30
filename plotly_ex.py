@@ -541,6 +541,46 @@ fig = px.scatter_3d(
 )
 fig.update_traces(marker_size=8)
 plot(fig)
+
+"réseau de neurone"
+
+# liens
+edge_x, edge_y = [1.5,3,None,1.5,3,None,1.5,3,None,1.5,3,None,1.5,3,None,1.5,3,None,3,4.5,None,3,4.5,None,3,4.5,None,3,4.5,None,3,4.5,None,3,4.5,None,3,4.5,None,],\
+                 [1,0,None,1,2,None,1,4,None,3,0,None,3,2,None,3,4,None,0,1,None,0,1,None,0,3,None,2,1,None,2,3,None,4,1,None,4,3,None,]
+# None pour couper la ligne
+edge_trace = go.Scatter(
+    x=edge_x, y=edge_y,
+    line=dict(width=2, color='#000000'),
+    hoverinfo='none',
+    mode='lines')
+
+# traçage des noeuds
+node_x, node_y = [1.5,1.5,3,3,3,4.5,4.5],\
+                 [1,3,0,2,4,1,3]
+node_trace = go.Scatter(
+    x=node_x, y=node_y,
+    mode='markers',
+    hoverinfo='text',
+    marker=dict(
+        color='green',
+        size=20,
+        line_width=1.5))
+
+# affichage
+fig = go.Figure(data=[edge_trace, node_trace],
+             layout=go.Layout(
+                titlefont_size=16,
+                showlegend=False,
+                hovermode='closest',
+                margin=dict(b=20,l=5,r=5,t=40),
+                xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                yaxis_range=[-6,10],
+                xaxis_range=[-5,11]
+             )
+             )
+plot(fig)
+
 # ------------------------------------------
 
 
