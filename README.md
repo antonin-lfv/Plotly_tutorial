@@ -32,6 +32,7 @@
 		- [Scatter plot avec échelle des tailles des points](#scatter-plot-avec-échelle-des-tailles-des-points)
 		- [Plot avec animation](#plot-avec-animation)
 		- [Line Charts](#line-charts)
+		- [Line charts et curseur](#line-charts-curseur)
 		- [Area charts](#area-charts)
 		- [Pie charts](#pie-charts)
 		- [Pie charts avec partie en dehors](#pie-charts-avec-partie-en-dehors)
@@ -258,6 +259,24 @@ plot(fig)
 <br/>
 <p align="center">
 <img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 48" src="https://user-images.githubusercontent.com/63207451/100014261-6d018700-2dd6-11eb-9d87-7945753a2a19.png">	
+<p/>
+<br/>
+
+
+### line charts curseur
+
+```py
+df = px.data.gapminder().query("continent=='Oceania'")
+fig = px.line(df, x="year", y="lifeExp", color="country", title="Spike lines active")
+fig.update_traces(mode="markers+lines")
+fig.update_xaxes(showspikes=True)
+fig.update_yaxes(showspikes=True)
+plot(fig)
+```
+
+<br/>
+<p align="center">
+<img width="1399" alt="Capture d’écran 2021-04-30 à 12 48 38" src="https://user-images.githubusercontent.com/63207451/116685300-6644f480-a9b2-11eb-922c-7a9516afb406.png">	
 <p/>
 <br/>
 
