@@ -91,6 +91,18 @@ fig = px.scatter(df, x="gdpPercap", y="lifeExp", animation_frame="year", animati
 # facet_col pour couper les données en plusieurs colonnes
 plot(fig)
 
+"line chart - avec curseur sur les axes"
+
+df = px.data.gapminder().query("continent=='Oceania'")
+
+fig = px.line(df, x="year", y="lifeExp", color="country", title="Spike lines active")
+fig.update_traces(mode="markers+lines")
+
+fig.update_xaxes(showspikes=True)
+fig.update_yaxes(showspikes=True)
+
+plot(fig)
+
 "area charts"
 
 df = px.data.gapminder()
