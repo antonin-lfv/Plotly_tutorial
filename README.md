@@ -824,22 +824,22 @@ df = df_final
 X = df[['x', 'y']]
 y = df['hauteurs']
 
-# Condition the model on sepal width and length, predict the petal width
+# Modele
 model = SVR(C=1.)
 model.fit(X, y)
 
-# Create a mesh grid on which we will run our model
+# mesh grid 
 x_min, x_max = X.x.min() - margin, X.x.max() + margin
 y_min, y_max = X.y.min() - margin, X.y.max() + margin
 xrange = np.arange(x_min, x_max, mesh_size)
 yrange = np.arange(y_min, y_max, mesh_size)
 xx, yy = np.meshgrid(xrange, yrange)
 
-# Run model
+# On run le modele
 pred = model.predict(np.c_[xx.ravel(), yy.ravel()])
 pred = pred.reshape(xx.shape)
 
-# Generate the plot
+# plot
 fig = px.scatter_3d(df, x='x', y='y', z='hauteurs')
 fig.update_traces(marker=dict(size=5))
 fig.add_traces(go.Surface(x=xrange, y=yrange, z=pred, name='pred_surface'))
