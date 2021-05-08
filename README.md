@@ -3,12 +3,6 @@
 <a href="https://www.python.org" class="fancybox" ><img width="70" height="70" src="https://user-images.githubusercontent.com/63207451/114384339-e08e1000-9b8e-11eb-8601-357b55eb286e.png"><a/>
 	<p/>
 <br/>
-	
-<div>
-    <a href="https://plotly.com/~antonin45/42/?share_key=sRNCpC2gte4SV9rsyCt9qG" target="_blank" title="test21" style="display: block; text-align: center;"><img src="https://plotly.com/~antonin45/42.png?share_key=sRNCpC2gte4SV9rsyCt9qG" alt="test21" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plotly.com/404.png';" /></a>
-    <script data-plotly="antonin45:42" sharekey-plotly="sRNCpC2gte4SV9rsyCt9qG" src="https://plotly.com/embed.js" async></script>
-</div>
-
 
 <h1 align="center">Plotly tutorial - Data analysis and Machine learning</h1>
 <br/>
