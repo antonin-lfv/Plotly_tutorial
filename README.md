@@ -4,7 +4,11 @@
 	<p/>
 <br/>
 	
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~antonin45/1.embed"></iframe>
+<div>
+    <a href="https://plotly.com/~antonin45/42/?share_key=sRNCpC2gte4SV9rsyCt9qG" target="_blank" title="test21" style="display: block; text-align: center;"><img src="https://plotly.com/~antonin45/42.png?share_key=sRNCpC2gte4SV9rsyCt9qG" alt="test21" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plotly.com/404.png';" /></a>
+    <script data-plotly="antonin45:42" sharekey-plotly="sRNCpC2gte4SV9rsyCt9qG" src="https://plotly.com/embed.js" async></script>
+</div>
+
 
 <h1 align="center">Plotly tutorial - Data analysis and Machine learning</h1>
 <br/>
