@@ -6,10 +6,6 @@
 
 <h1 align="center">Plotly tutorial - Data analysis and Machine learning</h1>
 <br/>
-
-<p>
-	<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~antonin45/48.embed"></iframe>
-	</p>
 	
 <p align="center">
 	Ce projet à pour objectif de présenter le module <b>Plotly</b> qui est l'un des modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Dans ce <b>README</b> toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom <b>code.py</b> .
