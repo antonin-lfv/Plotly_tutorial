@@ -1,6 +1,6 @@
 <p align="center">
 <a href="https://www.python.org" class="fancybox" ><img width="70" height="70" src="https://user-images.githubusercontent.com/63207451/97306728-26fce600-185f-11eb-9784-14151a6b2c43.png"><a/>
-<a href="https://www.python.org" class="fancybox" ><img width="150" height="70" src="https://user-images.githubusercontent.com/63207451/118668936-9800ec80-b7f5-11eb-9c2a-1b2e389060d7.png"><a/>
+<a href="https://www.python.org" class="fancybox" ><img width="1023" height="622" src="https://user-images.githubusercontent.com/63207451/118668936-9800ec80-b7f5-11eb-9c2a-1b2e389060d7.png"><a/>
 	<p/>
 <br/>
 
