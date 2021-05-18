@@ -95,7 +95,7 @@ import networkx as nx
 
 # Plotly.Express
 
-Plotly express, importée en tant que __px__, est la partie de plotly permettant de créer rapidement et simplement n'importe quel graphique en 1 ligne de code. Son interet est notamment basé sur le fait qu'elle marche parfaitement bien avec les DataFrames de Pandas, mais on peut également travailler avec des listes ou tout autre type de données. Son utilisation est limitée notamment dans la conception de subplots. Vous verrez dans cette section quelles sont les fonctions les plus utiles de plotly express, et comment les personnaliser au maximum.
+Plotly express, importée en tant que __px__, est la partie de plotly permettant de créer rapidement et simplement n'importe quel graphique en 1 ligne de code. Son interet est notamment basé sur le fait qu'elle marche parfaitement bien avec les __DataFrames__ de Pandas, mais on peut également travailler avec des listes ou tout autre type de données. Son utilisation est limitée notamment dans la conception de subplots. Vous verrez dans cette section quelles sont les fonctions les plus utiles de __plotly express__, et comment les personnaliser au maximum.
 <br/>
 
 Voici la syntaxe globale d'un code utilisant plotly express :
@@ -497,9 +497,9 @@ plot(fig)
 
 # Plotly.Graph_Objects
 
-Plotly graph_objects, importée en tant que __go__ est la partie de Plotly utilisant la POO, pour créer des graphiques très complets. On va y retrouver la 
+Plotly __graph_objects__, importée en tant que __go__ est la partie de Plotly utilisant la __POO__, pour créer des graphiques très complets. On va y retrouver la 
 plupart des fonctions de plotly express. 
-Vous verrez dans cette section quelles sont les fonctions les plus utiles de plotly graph_objetcs et comment les personnaliser
+Vous verrez dans cette section quelles sont les fonctions les plus utiles de plotly __graph_objetcs__ et comment les personnaliser
 au maximum.
 <br/>
 
