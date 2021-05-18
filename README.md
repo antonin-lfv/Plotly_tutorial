@@ -8,7 +8,7 @@
 <br/>
 	
 <p align="center">
-	Ce projet à pour objectif de présenter le module <b>Plotly</b> qui est l'un des modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Dans ce <b>README</b> toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom <b>code.py</b> .
+	Ce repo à pour objectif de présenter le module <b>Plotly</b> qui est l'un des modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Dans ce <b>README</b> toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom <b>code.py</b> .
 <br/>
 	<p/>
 
@@ -17,64 +17,50 @@
 > Pour comprendre plus en détails comment plotly fonctionne, et pour personnaliser au maximum vos graphiques, je vous invite à consulter mon [article](https://github.com/antonin-lfv/Plotly_tutorial/blob/main/README.md) sur plotly. ( bientôt disponible )
 <br/>
 
-## Index
-- [Analyse de données](#analyse-de-données)
-	- [Importations](#importations)
-	- [Première approche](#première-approche)
+# Index
+
+- [Plotly.Express](#plotlyexpress) 
+	- [Scatter plot](#scatter-plot)
+		- [Exemple simple](#Exemple-simple)
+		- [Superposition de figures](#Superposition-de-figures)
+		- [Subplots](#subplots)
+		- [Animations](#animations)
+		- [Range Slider](#range-slider)
+		- [Rectangles et lignes](#rectangles-et-lignes)
+		- [Marges statistiques](#marges-statistiques)
+		- [Curseurs](#curseurs)
+		- [Plot 3D](#plot-3d)
+	- [Bar chart](#bar-chart)
 		- [Premier exemple](#premier-exemple)
-		- [Deuxième exemple](#deuxième-exemple)
-	- [Fonctions principales plotly.express](#fonctions-principales-plotlyexpress)
-		- [Scatter plot](#scatter-plot)
-		- [Courbe de tendance et densité](#courbe-de-tendance-et-densité)
-		- [Error bars](#error-bars)
-		- [Bar charts](#bar-charts)
-		- [Graphiques de corrélations](#graphiques-de-corrélations)
-		- [Scatter plot avec échelle des tailles des points](#scatter-plot-avec-échelle-des-tailles-des-points)
-		- [Plot avec animation](#plot-avec-animation)
-		- [Line Charts](#line-charts)
-		- [Line charts et curseur](#line-charts-curseur)
-		- [Area charts](#area-charts)
-		- [Pie charts](#pie-charts)
-		- [Pie charts avec partie en dehors](#pie-charts-avec-partie-en-dehors)
-		- [Donut charts](#donut-charts)
-		- [Sunburst charts](#sunburst-charts)
-		- [Treemaps](#treemaps)
-		- [Histograms](#histograms)
-		- [Boxplots](#boxplots)
-		- [Violon plots](#violon-plots)
-		- [Density contours](#density-contours)
-		- [Heatmap](#heatmap)
-		- [Point sur une carte](#point-sur-une-carte)
-		- [Surface sur une carte](#surface-sur-une-carte)
-		- [Polar plots](#polar-plots)
-		- [Polar bar charts](#polar-bar-charts)
-		- [Radar charts](#radar-charts)
-		- [Coordonnées en 3D](#coordonnées-en-3d)
-		- [Ternary charts](#ternary-charts)
-	- [Graphiques multiples - Subplots](#graphiques-multiples---subplots)
-		- [Pie subplots](#pie-subplots)
-		- [Graphe subplots](#graphe-subplots)
-		- [Les types de subplot](#les-types-de-subplot)
-	- [Graphiques en 3D](#graphiques-en-3d)
-		- [Surface](#surface)
-		- [Nuage de points](#nuage-de-points)
-	- [Slide bar](#slide-bar)
-		- [Interactive plots](#interactive-plots)
-		- [Sliders](#sliders)
-		- [Sliders et sélecteur d'intervalles](#sliders-et-sélecteur-dintervalles)
-		
-		<br/>
-- [Machine Learning](#machine-learning)
-	- [Regression linéaire](#regression-linéaire)
-	- [Regression surfacique en 3D](#regression-surfacique-en-3d)
-	- [réduction de dimension](#réduction-de-dimension)
+		- [Indicateurs marginaux](#indicateurs-marginaux)
+	- [Pie chart](#pie-chart)
+		- [Exemple basique](#exemple-basique)
+	- [Polar bar charts](#polar-bar-charts)
+	- [Points sur une carte](#Points-sur-une-carte)
+	- [Machine Learning](#Machine-learning)
+		- [Regression linéaire](#regression-linéaire)
 	  	- [UMAP](#UMAP)
 		- [t-SNE](#t-SNE)
-	- [création réseau de neurones](#réseau-de-neurones)
+	- [Graphique de corrélation](#graphique-de-corrélation)
 
 <br/>
 
-## Installation
+- [Plotly.Graph_Objects](#plotlygraph_objects)
+	- [Subplots](#subplots-Go)
+	- [Scatter](#scatter)
+		- [Scatter basique](#scatter-basique)
+		- [Annotations](#annotations)
+		- [Droite et plage de valeurs](#droite-et-plage-de-valeurs)
+	- [Pie chart](#Pie-chart-Go)
+	- [Violin chart](#Violin-chart)
+	- [Histogramme/Bar](#Histogrammebar)
+	- [Graphiques en 3D](#graphiques-en-3d)
+		- [Surface](#surface)
+		- [Nuage de points](#nuage-de-points) 
+	- [Réseau de neurones](#réseau-de-neurones)
+	- [Regression surfacique en 3D](#regression-surfacique-en-3d)
+
+# Installation
 <br/>
 Installation : <br/>
 <br/>
@@ -88,9 +74,7 @@ pip install plotly
 Documentation [Plotly](https://plotly.com/python/) .
 <br/>
 
-# Analyse de données
-
-## Importations
+# Importations
 
 <br/>
 
@@ -109,344 +93,311 @@ import networkx as nx
 ```
 <br/>
 
-## Première approche
+# Plotly.Express
 
+Plotly express, importée en tant que __px__, est la partie de plotly permettant de créer rapidement et simplement n'importe quel graphique en 1 ligne de code. Son interet est notamment basé sur le fait qu'elle marche parfaitement bien avec les DataFrames de Pandas, mais on peut également travailler avec des listes ou tout autre type de données. Son utilisation est limitée notamment dans la conception de subplots. Vous verrez dans cette section quelles sont les fonctions les plus utiles de plotly express, et comment les personnaliser au maximum.
 <br/>
 
-### Premier exemple
-
+Voici la syntaxe globale d'un code utilisant plotly express :
 ```py
-wide_df = px.data.medals_wide()
-fig = px.bar(wide_df, x="nation", y=["gold", "silver", "bronze"],
-             title="Proportion des productions de Minerais", # le titre
-             labels={"value": "Production annuelle en Tonnes", "variable": "type"}, # le nom des axes
-             color_discrete_map={"gold": "gold", "silver": "silver", "bronze": "#c96"}, # la couleur par classe
-             template="simple_white") # couleur du fond
-fig.update_layout(font_family="Rockwell", # police du texte
-                  showlegend=False)
-fig.add_annotation(text="Production supérieur à la demande", x="South Korea", # ajouter un texte avec une flèche
-                   y=49, arrowhead=1, showarrow=True)
-fig.add_shape(type="line", line_color="salmon", line_width=3, opacity=1, line_dash="dot", #najouter une ligne horizontale
-              x0=0, x1=1, xref="paper", y0=40, y1=40, yref="y")
+fig = px.chart_type(df, parameters)
+fig.update_layout("layout_parameters or add annotations")
+fig.update_traces("further graph parameters")
+fig.update_xaxis() # ou update_yaxis
+fig.add_trace() # ajouter une figure avec graph_objects
 plot(fig)
 ```
 
 <br/>
-<p align="center">
-<img src="https://user-images.githubusercontent.com/63207451/108405998-19120d00-7222-11eb-8e6e-2e62d9b96dc4.png">
-<p/>
 
-### Deuxième exemple
+## Scatter plot
 
-```py
-fig = go.Figure(go.Pie(
-    title = "languages populaires",
-    values = [2, 5, 3, 2.5],
-    labels = ["R", "Python", "Java Script", "Matlab"],
-    text = ["R", "Python", "Js", "Matlab"],
-    hovertemplate = "%{label}: <br>Popularity: %{percent} </br> %{text}" # ce qu'on voit avec la souris dessus))
-plot(fig)
-```
-<br/>
-<p align="center">
-<img src="https://user-images.githubusercontent.com/63207451/108406210-64c4b680-7222-11eb-902f-908b25a84279.png">
-<p/>
+### Exemple simple
 
-<br/>
-
-## Fonctions principales plotly.express
-
-<br/>
-
-### Scatter plot
-
-```py
-df = px.data.iris() # pandas dataframe
-fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species", title='Scatter')
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1184" alt="Capture d’écran 2020-11-23 à 21 41 58" src="https://user-images.githubusercontent.com/63207451/100013856-cddc8f80-2dd5-11eb-8dac-85110bdda97e.png">	
-<p/>
-<br/>
-
-### Courbe de tendance et densité
+On personnalise les figures de plotly express suivant ce modèle : 
 
 ```py
 df = px.data.iris()
-fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species",marginal_y="violin",
-                 marginal_x="box", trendline="ols", template="simple_white")
-# trendline = ols pour lineaire et lowess pour non linéaire
+
+fig = px.scatter(df, x="sepal_width", # nom de la colonne du dataframe
+                 y="sepal_length", # nom de la colonne du dataframe
+                 color="species", # nom de la colonne du dataframe
+                 )
+
+fig.update_layout(title="Scatter avec px et ajout d'une figure avec Go",
+                  font_family="Rockwell")
+
+fig.update_xaxes(title_text='largeur sepales')
+fig.update_yaxes(title_text='longueur sepales')
+
+fig.add_trace(
+    go.Scatter(
+        x=[2, 4],
+        y=[4, 8],
+        mode="lines",
+        marker=dict(color="gray"),
+        name="droite",
+        showlegend=True) # True par défaut
+)
+
 plot(fig)
 ```
 <br/>
-<p align="center">
-<img width="1184" alt="Capture d’écran 2020-11-23 à 21 42 12" src="https://user-images.githubusercontent.com/63207451/100014025-1300c180-2dd6-11eb-9a02-214a1174b9c8.png">
-<p/>
+
+<img width="1419" alt="Capture d’écran 2021-05-18 à 09 39 56" src="https://user-images.githubusercontent.com/63207451/118611343-05dcf200-b7bd-11eb-98ba-cde2bcecf80e.png">
+
 <br/>
 
-### Error bars
+### Superposition de figures
+
+Si on veut superposer des courbes avec les données du même dataset on écrit : 
 
 ```py
 df = px.data.iris()
-df["e"] = df["sepal_width"]/100 
-fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species", error_x="e", error_y="e")
+fig = px.line(df, y=["sepal_width", "sepal_length", "petal_width"],
+              #text="species_id" # pour ajouter l'id de l'espèce au dessus de chaque point
+              color_discrete_map={"sepal_width":"blue", 
+	      			  "sepal_length":"black",
+				  "petal_width":"green" }, # couleur de chaque ligne
+            )
 plot(fig)
 ```
+
 <br/>
-<p align="center">
-<img width="1184" alt="Capture d’écran 2020-11-23 à 21 42 24" src="https://user-images.githubusercontent.com/63207451/100014061-23b13780-2dd6-11eb-9996-866420a6b799.png">	
-<p/>
+<img width="1419" alt="Capture d’écran 2021-05-18 à 09 42 40" src="https://user-images.githubusercontent.com/63207451/118611691-6a984c80-b7bd-11eb-92cb-bf433f8fa8b7.png">
 <br/>
 
-### Bar charts
+### Subplots
 
-```py
-df = px.data.tips()
-fig = px.bar(df, x="sex", y="total_bill", color="smoker", barmode="group")
-# barmode="group" pour séparer les bars par color
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1187" alt="Capture d’écran 2020-11-23 à 21 42 41" src="https://user-images.githubusercontent.com/63207451/100014104-3461ad80-2dd6-11eb-8f06-02a555611f21.png">	
-<p/>
-<br/>
-
-### Graphiques de corrélations
+On peut aussi séparer les figures en plusieurs, c'est le seul moyen de faire des subplots avec plotly express ! Il y a 2 types de subplots, soit en lignes, soit en colonnes, spécifié par le paramètre facet_col ou facet_row. Partons du code suivant : 
 
 ```py
 df = px.data.iris()
-fig = px.scatter_matrix(df, dimensions=["sepal_width", "sepal_length", "petal_width", "petal_length"], color="species")
+fig = px.line(df, y=["sepal_width", "sepal_length", "petal_width"],
+              #text="species_id" on ajoute ici l'id de l'espèce au dessus de chaque point
+              color_discrete_map={"sepal_width":"blue", 
+	      			  "sepal_length":"black",
+				  "petal_width":"green" }, # couleur de chaque ligne
+            )
 plot(fig)
 ```
-<br/>
-<p align="center">
-<img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 03" src="https://user-images.githubusercontent.com/63207451/100014133-404d6f80-2dd6-11eb-9f4e-f0bca9ee9b96.png">
-<p/>
+
+Alors on obtient ces résultats en fonction du paramètre de séparation :
+
 <br/>
 
-### Scatter plot avec échelle des tailles des points
+| facet_col="species" | facet_row="species" |
+|---------------------|---------------------|
+|<img width="600" alt="Capture d’écran 2021-05-18 à 09 44 19" src="https://user-images.githubusercontent.com/63207451/118611980-a59a8000-b7bd-11eb-8ae9-2b8a673d7e5d.png">|<img width="600" alt="Capture d’écran 2021-05-18 à 09 45 25" src="https://user-images.githubusercontent.com/63207451/118612164-cb278980-b7bd-11eb-9586-abeb9e3a7fb9.png">|
+
+<br/>
+
+### Animations
+
+On fait bouger les points qui suivent l'évolution des données au fil des années :
 
 ```py
 df = px.data.gapminder()
-fig = px.scatter(df.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
-           hover_name="country", log_x=True, size_max=60)
+df_fr=df[df['country']=='France']
+df_us=df[df['country']=='United States']
+df = pd.concat([df_fr, df_us])
+
+fig = px.scatter(df,
+        y="gdpPercap",
+        x="year",
+        color="country",
+        title="évolution pib france et USA",
+        range_x=[1952,2007],
+        range_y=[df['gdpPercap'].min(), df['gdpPercap'].max()],
+        animation_frame="year")
 plot(fig)
 ```
+
 <br/>
-<p align="center">
-<img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 15" src="https://user-images.githubusercontent.com/63207451/100014179-53f8d600-2dd6-11eb-810e-d1f9c64dad45.png">	
-<p/>
+<img width="1403" alt="Capture d’écran 2021-05-18 à 09 49 41" src="https://user-images.githubusercontent.com/63207451/118612783-67519080-b7be-11eb-8bc7-9bc9e9c1c55d.png">
 <br/>
 
-### Plot avec animation
+### Range Slider
+
+Personnalisation des axes avec un range slider visible :
 
 ```py
-df = px.data.gapminder()
-fig = px.scatter(df, x="gdpPercap", y="lifeExp", animation_frame="year", animation_group="country",
-           size="pop", color="continent", hover_name="country", facet_col="continent",
-           log_x=True, size_max=45, range_x=[100,100000], range_y=[25,90])
-# facet_col pour couper les données en plusieurs colonnes
+df = px.data.carshare()
+fig = px.line(df, y="car_hours",
+              #text="species_id" on ajoute ici l'id de l'espèce au dessus de chaque point
+              color_discrete_map={"car_hours":"black"}, # couleur de chaque ligne
+            )
+fig.update_xaxes(rangeslider_visible=True)
 plot(fig)
 ```
+
 <br/>
-<p align="center">
-<img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 34" src="https://user-images.githubusercontent.com/63207451/100014215-5fe49800-2dd6-11eb-9806-cd62c521106d.png">	
-<p/>
+<img width="1403" alt="Capture d’écran 2021-05-18 à 09 51 49" src="https://user-images.githubusercontent.com/63207451/118613064-ac75c280-b7be-11eb-8648-05aa6843c10b.png">
 <br/>
 
-### Line charts
+### Rectangles et lignes
+
+On peut colorier une plage de valeurs, ou ajouter une ligne :
 
 ```py
-df = px.data.gapminder()
-fig = px.line(df, x="year", y="lifeExp", color="continent", line_group="country", hover_name="country",
-        line_shape="spline", render_mode="svg")
+df = px.data.stocks(indexed=True)
+fig = px.line(df, facet_col="company",
+              facet_col_wrap=2 # nombre de figure par ligne
+              )
+fig.add_hline( # ou vline pour verticale avec x=...
+              y=1, line_dash="dot",
+              annotation_text="1er janvier 2018",
+              annotation_position="bottom right")
+
+fig.add_vrect( # ou hrect pour horizontal
+              x0="2018-09-24", x1="2018-12-18",
+              col=2, # numéro de la colonne (les figures de droites)
+              annotation_text="24/09 au 18/12 2018",
+              annotation_position="top left",
+              fillcolor="red", opacity=0.2, line_width=0.1)
+
+fig.add_hrect( # ou hrect pour horizontal
+              y0=1.1, y1=1.7,
+              col=1, # numéro de la colonne (les figures de droites)
+              annotation_text="1.1 à 1.7",
+              annotation_position="top right",
+              fillcolor="blue", opacity=0.15, line_width=0.4)
+
+plot(fig)
+```
+
+<br/>
+<img width="1403" alt="Capture d’écran 2021-05-18 à 09 52 53" src="https://user-images.githubusercontent.com/63207451/118613217-d4652600-b7be-11eb-8b8f-bdebc1c54626.png">
+<br/>
+
+### Marges statistiques
+
+On ajoute un indicateur statistique sur chacune des variables du scatter :
+
+```py
+df = px.data.iris()
+fig = px.scatter(df, x="sepal_length", # données
+                 color="species", # couleur par expèce
+                 marginal_x='box', # marge en boxplot
+                 marginal_y='violin', # marge en violon
+                 trendline="ols" # courbe de tendances
+                 )
 plot(fig)
 ```
 <br/>
-<p align="center">
-<img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 48" src="https://user-images.githubusercontent.com/63207451/100014261-6d018700-2dd6-11eb-9d87-7945753a2a19.png">	
-<p/>
+<img width="1403" alt="Capture d’écran 2021-05-18 à 09 53 30" src="https://user-images.githubusercontent.com/63207451/118613295-e941b980-b7be-11eb-9930-e1c1a496e8f6.png">
 <br/>
 
+### Curseurs
 
-### line charts curseur
+Curseurs qui apparaissent avec survol de la souris sur un point du graphique :
 
 ```py
 df = px.data.gapminder().query("continent=='Oceania'")
-fig = px.line(df, x="year", y="lifeExp", color="country", title="Spike lines active")
-fig.update_traces(mode="markers+lines")
+fig = px.line(df, x="year", y="lifeExp", color="country",
+              title="curseurs")
+fig.update_traces(mode="markers+lines") # courbe avec ligne et points apparent
 fig.update_xaxes(showspikes=True)
 fig.update_yaxes(showspikes=True)
 plot(fig)
 ```
 
 <br/>
-<p align="center">
-<img width="1399" alt="Capture d’écran 2021-04-30 à 12 48 38" src="https://user-images.githubusercontent.com/63207451/116685300-6644f480-a9b2-11eb-922c-7a9516afb406.png">	
-<p/>
+<img width="1403" alt="Capture d’écran 2021-05-18 à 09 54 47" src="https://user-images.githubusercontent.com/63207451/118613484-168e6780-b7bf-11eb-9be4-204fb57f00ab.png">
 <br/>
 
-### Area charts
-
-```py
-df = px.data.gapminder()
-fig = px.area(df, x="year", y="pop", color="continent", line_group="country")
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 58" src="https://user-images.githubusercontent.com/63207451/100014395-991d0800-2dd6-11eb-933a-1390d94c4e6b.png">	
-<p/>
-<br/>
-
-### Pie charts
-
-```py
-df = px.data.gapminder().query("year == 2007").query("continent == 'Europe'")
-df.loc[df['pop'] < 2.e6, 'country'] = 'Other countries' # Represent only large countries
-fig = px.pie(df, values='pop', names='country', title='Population of European continent')
-fig.update_traces(textposition='inside', textinfo='percent+label')
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1163" alt="Capture d’écran 2020-11-23 à 21 44 17" src="https://user-images.githubusercontent.com/63207451/100014448-ab974180-2dd6-11eb-8256-220db37a275e.png">	
-<p/>
-<br/>
-
-### Pie charts avec partie en dehors
-
-```py
-labels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
-values = [4500, 2500, 1053, 500]
-
-# pull is given as a fraction of the pie radius
-fig = go.Figure(data=[go.Pie(labels=labels, values=values, pull=[0, 0, 0.2, 0])])
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1163" alt="Capture d’écran 2020-11-23 à 21 44 27" src="https://user-images.githubusercontent.com/63207451/100014497-ba7df400-2dd6-11eb-8931-121589445a3f.png">	
-<p/>
-<br/>
-
-### Donut charts
-
-```py
-labels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
-values = [4500, 2500, 1053, 500]
-# Use `hole` to create a donut-like pie chart
-fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3)])
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1163" alt="Capture d’écran 2020-11-23 à 21 44 36" src="https://user-images.githubusercontent.com/63207451/100014528-c5d11f80-2dd6-11eb-9467-2a775d101bd8.png">	
-<p/>
-<br/>
-
-### Sunburst charts
-
-```py
-df = px.data.gapminder().query("year == 2007")
-fig = px.sunburst(df, path=['continent', 'country'], values='pop',
-                  color='lifeExp', hover_data=['iso_alpha'])
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1163" alt="Capture d’écran 2020-11-23 à 21 44 47" src="https://user-images.githubusercontent.com/63207451/100014559-d2557800-2dd6-11eb-928f-2f080b549af9.png">	
-<p/>
-<br/>
-
-### Treemaps
-
-```py
-df = px.data.gapminder().query("year == 2007")
-fig = px.treemap(df, path=[px.Constant('world'), 'continent', 'country'], values='pop',
-                  color='lifeExp', hover_data=['iso_alpha'])
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1163" alt="Capture d’écran 2020-11-23 à 21 44 58" src="https://user-images.githubusercontent.com/63207451/100014601-e26d5780-2dd6-11eb-92bf-97314f41bb47.png">	
-<p/>
-<br/>
-
-### Histograms
-
-```py
-df = px.data.tips()
-fig = px.histogram(df, x="total_bill", y="tip", color="sex", hover_data=df.columns)
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1163" alt="Capture d’écran 2020-11-23 à 21 45 11" src="https://user-images.githubusercontent.com/63207451/100014649-f5802780-2dd6-11eb-80b4-3af4f9555091.png">	
-<p/>
-<br/>
-
-### Boxplots
-
-```py
-df = px.data.tips()
-fig = px.box(df, x="day", y="total_bill", color="smoker", notched=True)
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1163" alt="Capture d’écran 2020-11-23 à 21 45 20" src="https://user-images.githubusercontent.com/63207451/100014681-0335ad00-2dd7-11eb-9830-34997f3030ff.png">	
-<p/>
-<br/>
-
-### Violon plots
-
-```py
-df = px.data.tips()
-fig = px.violin(df, y="tip", x="smoker", color="sex", box=True, points="all", hover_data=df.columns)
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1163" alt="Capture d’écran 2020-11-23 à 21 45 28" src="https://user-images.githubusercontent.com/63207451/100014702-0d57ab80-2dd7-11eb-8173-80050ccde0a5.png">	
-<p/>
-<br/>
-
-### Density contours
+### Plot 3D
 
 ```py
 df = px.data.iris()
-fig = px.density_contour(df, x="sepal_width", y="sepal_length")
+fig = px.scatter_3d(df, x='sepal_length', y='sepal_width', z='petal_width',
+              color='species', size='petal_length', size_max=18,symbol='species', opacity=1)
 plot(fig)
 ```
+
 <br/>
-<p align="center">
-<img width="1166" alt="Capture d’écran 2020-11-23 à 21 45 43" src="https://user-images.githubusercontent.com/63207451/100014731-1a749a80-2dd7-11eb-82df-de6468a28d7d.png">	
-<p/>
+<img width="1411" alt="Capture d’écran 2021-05-18 à 10 42 21" src="https://user-images.githubusercontent.com/63207451/118620412-c666d380-b7c5-11eb-87e6-346920499cca.png">
 <br/>
 
-### Heatmap
+## Bar chart
+
+### Premier exemple
+
+Simple Barchart, on colorie sur une colonne et on sépare par couleur :
+
+```py
+df = px.data.tips()
+fig=px.bar(df,
+           x="sex",
+           y="total_bill",
+           color="smoker",
+           barmode="group")
+fig.update_traces( marker_line_color='rgb(8,48,107)',
+                  marker_line_width=1.5, opacity=0.6)
+plot(fig)
+```
+
+<br/>
+<img width="1413" alt="Capture d’écran 2021-05-18 à 16 12 29" src="https://user-images.githubusercontent.com/63207451/118666930-da292e80-b7f3-11eb-98c8-860f7dada52b.png">
+<br/>
+
+### Indicateurs marginaux
+
+On va tester 2 types de marges, violon et boxplot, qu'on ajoute avec le paramètre marginal :
 
 ```py
 df = px.data.iris()
-fig = px.density_heatmap(df, x="sepal_width", y="sepal_length", marginal_y="histogram")
-plot(fig)
-
-fig = px.imshow([[1, 20, 30],
-                 [20, 1, 60],
-                 [30, 60, 1]])
+fig = px.histogram(df, x="sepal_length",
+                   nbins=50, # on choisi le nombre de barres
+		   marginal=''
+                   )
 plot(fig)
 ```
-<br/>
-<p align="center">
-<img width="1166" alt="Capture d’écran 2020-11-23 à 21 45 59" src="https://user-images.githubusercontent.com/63207451/100014759-252f2f80-2dd7-11eb-9d56-630b029358a2.png">	
-<p/>
+
+|marginal='violin'|marginal='box'|
+|-----------------|--------------|
+|<img width="600" alt="Capture d’écran 2021-05-18 à 10 06 10" src="https://user-images.githubusercontent.com/63207451/118615088-ae408580-b7c0-11eb-8306-bc30dfbd6c46.png">|<img width="600" alt="Capture d’écran 2021-05-18 à 10 07 45" src="https://user-images.githubusercontent.com/63207451/118615324-e5af3200-b7c0-11eb-91e7-becb37f542fe.png">|
+
 <br/>
 
-### Point sur une carte
+## Pie chart
+
+### Exemple basique
+
+```py
+df = px.data.tips()
+fig = px.pie(df, values='tip', # ce qu'on compte
+             names='day', # sur quoi on tri
+             color='day',
+             hole=.3, # donut chart
+             color_discrete_map={'Thur':'lightblue', # couleur spécifique par valeur
+                                 'Fri':'lightred',
+                                 'Sat':'gold',
+                                 'Sun':'green'})
+plot(fig)
+```
+
+<br/>
+<img width="1386" alt="Capture d’écran 2021-05-18 à 16 04 01" src="https://user-images.githubusercontent.com/63207451/118665541-ab5e8880-b7f2-11eb-903d-5a6ed3e70a11.png">
+<br/>
+
+## Polar bar charts
+
+On va représenter ici la force des vents, sur un diagramme polaire, avec la direction comme angle, et la force en taille :
+
+```py
+df = px.data.wind()
+fig = px.bar_polar(df, r="frequency", theta="direction", color="strength", 
+		template="seaborn", # couleur de fond
+                color_discrete_sequence= px.colors.sequential.Plasma_r)
+plot(fig)
+```
+
+<br/>
+<img width="1386" alt="Capture d’écran 2021-05-18 à 16 07 18" src="https://user-images.githubusercontent.com/63207451/118666061-2627a380-b7f3-11eb-942d-25e2d9491bac.png">	
+<br/>
+
+## Points sur une carte
 
 ```py
 df = px.data.carshare()
@@ -456,336 +407,12 @@ fig = px.scatter_mapbox(df, lat="centroid_lat", lon="centroid_lon", color="peak_
 plot(fig)
 ```
 <br/>
-<p align="center">
 <img width="1166" alt="Capture d’écran 2020-11-23 à 21 46 10" src="https://user-images.githubusercontent.com/63207451/100014788-311af180-2dd7-11eb-951b-a803e3e458ed.png">	
-<p/>
 <br/>
 
-### Surface sur une carte
+## Machine Learning
 
-```py
-df = px.data.election()
-geojson = px.data.election_geojson()
-
-fig = px.choropleth_mapbox(df, geojson=geojson, color="Bergeron",
-                           locations="district", featureidkey="properties.district",
-                           center={"lat": 45.5517, "lon": -73.7073},
-                           mapbox_style="carto-positron", zoom=9)
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1166" alt="Capture d’écran 2020-11-23 à 21 46 25" src="https://user-images.githubusercontent.com/63207451/100014823-43952b00-2dd7-11eb-9696-d81e18e1667a.png">	
-<p/>
-<br/>
-
-### Polar plots
-
-```py
-df = px.data.wind()
-fig = px.scatter_polar(df, r="frequency", theta="direction", color="strength", symbol="strength",
-            color_discrete_sequence=px.colors.sequential.Plasma_r)
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1166" alt="Capture d’écran 2020-11-23 à 21 46 40" src="https://user-images.githubusercontent.com/63207451/100014889-59a2eb80-2dd7-11eb-8e5f-ce79cc9a9100.png">	
-<p/>
-<br/>
-
-### Polar bar charts
-
-```py
-df = px.data.wind()
-fig = px.bar_polar(df, r="frequency", theta="direction", color="strength", template="plotly_dark",
-            color_discrete_sequence= px.colors.sequential.Plasma_r)
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1166" alt="Capture d’écran 2020-11-23 à 21 46 55" src="https://user-images.githubusercontent.com/63207451/100014925-6aebf800-2dd7-11eb-9316-e808a0563909.png">	
-<p/>
-<br/>
-
-### Radar charts
-
-```py
-df = px.data.wind()
-fig = px.line_polar(df, r="frequency", theta="direction", color="strength", line_close=True,
-            color_discrete_sequence=px.colors.sequential.Plasma_r)
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1166" alt="Capture d’écran 2020-11-23 à 21 47 08" src="https://user-images.githubusercontent.com/63207451/100014956-763f2380-2dd7-11eb-93fa-c342ade13527.png">	
-<p/>
-<br/>
-
-### Coordonnées en 3D
-
-```py
-df = px.data.election()
-fig = px.scatter_3d(df, x="Joly", y="Coderre", z="Bergeron", color="winner", size="total", hover_name="district",
-                  symbol="result", color_discrete_map = {"Joly": "blue", "Bergeron": "green", "Coderre":"red"})
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1267" alt="Capture d’écran 2020-11-23 à 22 33 48" src="https://user-images.githubusercontent.com/63207451/100017987-02534a00-2ddc-11eb-8d5e-08b43e4f9516.png">	
-<p/>
-<br/>
-
-### Ternary charts
-
-```py
-df = px.data.election()
-fig = px.scatter_ternary(df, a="Joly", b="Coderre", c="Bergeron", color="winner", size="total", hover_name="district",
-                   size_max=15, color_discrete_map = {"Joly": "blue", "Bergeron": "green", "Coderre":"red"} )
-plot(fig)
-```
-
-<br/>
-<p align="center">
-<img width="1166" alt="Capture d’écran 2020-11-23 à 21 47 50" src="https://user-images.githubusercontent.com/63207451/100015002-8d7e1100-2dd7-11eb-8f25-14d3424f0daa.png">	
-<p/>
-
-<br/>
-
-## Graphiques multiples - Subplots
-
-<br/>
-
-### Pie subplots
-
-```py
-labels = ["US", "China", "European Union", "Russian Federation", "Brazil", "India","Rest of World"]
-fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, {'type':'domain'}]]) # 'domain' for pie subplots
-fig.add_trace(go.Pie(labels=labels, values=[16, 15, 12, 6, 5, 4, 42], name="GHG Emissions"),1, 1)
-fig.add_trace(go.Pie(labels=labels, values=[27, 11, 25, 8, 1, 3, 25], name="CO2 Emissions"),1, 2)
-fig.update_traces(hole=.4, hoverinfo="label+percent+name")
-fig.update_layout(
-    title_text="Global Emissions 1990-2011",
-    # Add annotations in the center of the donut pies.
-    annotations=[dict(text='GHG', x=0.18, y=0.5, font_size=20, showarrow=False),
-                 dict(text='CO2', x=0.82, y=0.5, font_size=20, showarrow=False)])
-plot(fig)
-```
-
-<br/>
-<p align="center">
-<img width="1166" alt="Capture d’écran 2020-11-23 à 22 11 39" src="https://user-images.githubusercontent.com/63207451/100016645-08e0c200-2dda-11eb-8965-e8b24587f971.png">
-<p/>
-<br/>
-
-### Graphe subplots
-
-```py
-df = px.data.iris() # pandas dataframe
-fig = make_subplots(rows=1, cols=2,subplot_titles=("Plot 1", "Plot 2")) #titre de chaque subplot
-fig.add_trace(go.Scatter(x=df["sepal_width"], y=df["sepal_length"]),1,1)
-fig.add_trace(go.Scatter(x=df["sepal_width"], y=df["sepal_length"]),1,2)
-fig.update_layout(title_text="subplot")
-# pour changer les axes de chaque subplot :
-fig.update_xaxes(title_text="xaxis 1 title", showgrid=False, row=1, col=1) # sans grid x
-fig.update_xaxes(title_text="xaxis 2 title", range=[0, 10], row=1, col=2)
-fig.update_yaxes(title_text="yaxis 1 title", showgrid=False,row=1, col=1) # sans grid y
-fig.update_yaxes(title_text="yaxis 2 title", range=[0, 10], row=1, col=2)
-plot(fig)
-```
-
-<br/>
-
-```py
-# pour avoir l'axe X en commun :
-fig = make_subplots(rows=3, cols=1, shared_xaxes=True, vertical_spacing=0.02)
-
-# pour avoir l'axe Y en commun
-fig = make_subplots(rows=2, cols=2, shared_yaxes=True)
-```
-
-<br/>
-<p align="center">
-<img width="1166" alt="Capture d’écran 2020-11-23 à 22 15 19" src="https://user-images.githubusercontent.com/63207451/100016992-84db0a00-2dda-11eb-81ee-03184e77c9f4.png">
-<p/>
-<br/>
-
-### Les types de subplot
-
-```
-xy: 2D Cartesian subplot type for scatter, bar, etc. This is the default if no type is specified.
-
-scene: 3D Cartesian subplot for scatter3d, cone, etc.
-
-polar: Polar subplot for scatterpolar, barpolar, etc.
-
-ternary: Ternary subplot for scatterternary.
-
-mapbox: Mapbox subplot for scattermapbox.
-
-domain: Subplot type for traces that are individually positioned. pie, parcoords, parcats, etc.
-
-trace type: A trace type name (e.g. bar, scattergeo, carpet, mesh, etc.) 
-which will be used to determine the appropriate subplot type for that trace.
-```
-
-<br/>
-
-## Graphiques en 3D
-
-<br/>
-
-### Surface
-
-```py
-z_data = df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/volcano.csv")
-fig = go.Figure(data=[go.Surface(z=z_data, colorscale='IceFire')]) # Z1 liste de liste
-fig.update_layout(title='Mountain')
-plot(fig)
-```
-
-<br/>
-<p align="center">
-<img width="1267" alt="Capture d’écran 2020-11-23 à 22 30 54" src="https://user-images.githubusercontent.com/63207451/100017741-ad173880-2ddb-11eb-8643-78795b0e3e57.png">
-<p/>
-<br/>
-
-### Nuage de points
-
-```py
-df = px.data.iris()
-fig = px.scatter_3d(df, x='sepal_length', y='sepal_width', z='petal_width',
-              color='species', size='petal_length', size_max=18,symbol='species', opacity=0.7)
-plot(fig)
-```
-<br/>
-<p align="center">
-<img width="1267" alt="Capture d’écran 2020-11-23 à 22 31 34" src="https://user-images.githubusercontent.com/63207451/100017787-bbfdeb00-2ddb-11eb-9ca5-603cca91a999.png">
-<p/>
-
-<br/>
-
-## Slide bar
-
-<br/>
-
-### Interactive plots
-
-```py
-np.random.seed(1)
-
-x0 = np.random.normal(2, 0.4, 400)
-y0 = np.random.normal(2, 0.4, 400)
-x1 = np.random.normal(3, 0.6, 600)
-y1 = np.random.normal(6, 0.4, 400)
-x2 = np.random.normal(4, 0.2, 200)
-y2 = np.random.normal(4, 0.4, 200)
-
-# Create figure
-fig = go.Figure()
-
-# Add traces
-fig.add_trace(go.Scatter(x=x0,y=y0,mode="markers",marker=dict(color="DarkOrange")))
-fig.add_trace(go.Scatter(x=x1,y=y1,mode="markers",marker=dict(color="Crimson")))
-fig.add_trace(go.Scatter(x=x2,y=y2,mode="markers",marker=dict(color="RebeccaPurple")))
-
-# Add buttons that add shapes
-cluster0 = [dict(type="circle",xref="x", yref="y",x0=min(x0), y0=min(y0),x1=max(x0), y1=max(y0),line=dict(color="DarkOrange"))]
-cluster1 = [dict(type="circle",xref="x", yref="y",x0=min(x1), y0=min(y1),x1=max(x1), y1=max(y1),line=dict(color="Crimson"))]
-cluster2 = [dict(type="circle",xref="x", yref="y",x0=min(x2), y0=min(y2),x1=max(x2), y1=max(y2),line=dict(color="RebeccaPurple"))]
-
-fig.update_layout(updatemenus=[dict(type="buttons",buttons=[
-                dict(label="None",
-                     method="relayout",
-                     args=["shapes", []]),
-                dict(label="Cluster 0",
-                     method="relayout",
-                     args=["shapes", cluster0]),
-                dict(label="Cluster 1",
-                     method="relayout",
-                     args=["shapes", cluster1]),
-                dict(label="Cluster 2",
-                     method="relayout",
-                     args=["shapes", cluster2]),
-                dict(label="All",
-                     method="relayout",
-                     args=["shapes", cluster0 + cluster1 + cluster2])]
-		     ,)])
-fig.update_layout(title_text="Highlight Clusters",showlegend=False,)
-plot(fig)
-```
-
-<br/>
-<p align="center">
-<img width="1267" alt="Capture d’écran 2020-11-23 à 22 38 56" src="https://user-images.githubusercontent.com/63207451/100019492-6e36b200-2dde-11eb-941e-373380479b9f.png">
-<p/>
-
-<br/>
-
-### Sliders
-
-```py
-df = px.data.gapminder()
-fig = px.scatter(df, x="gdpPercap", y="lifeExp", animation_frame="year", animation_group="country",
-           size="pop", color="continent", hover_name="country",
-           log_x=True, size_max=55, range_x=[100,100000], range_y=[25,90])
-
-fig["layout"].pop("updatemenus") # optional, drop animation buttons
-plot(fig)
-```
-
-<br/>
-<p align="center">
-<img width="1267" alt="Capture d’écran 2020-11-23 à 22 46 18" src="https://user-images.githubusercontent.com/63207451/100019524-7bec3780-2dde-11eb-88f6-e82ed1f54875.png">
-<p/>
-
-<br/>
-
-### Sliders et sélecteur d'intervalles
-
-```py
-# Load data
-df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv")
-df.columns = [col.replace("AAPL.", "") for col in df.columns]
-
-# Create figure
-fig = go.Figure()
-fig.add_trace(go.Scatter(x=list(df.Date), y=list(df.High)))
-
-# Set title
-fig.update_layout(title_text="Time series with range slider and selectors")
-
-# Add range slider
-fig.update_layout(xaxis=dict(rangeselector=dict(
-            buttons=list([
-                dict(count=1,
-                     label="1m",
-                     step="month",
-                     stepmode="backward"),
-                dict(count=6,
-                     label="6m",
-                     step="month",
-                     stepmode="backward"),
-                dict(count=1,
-                     label="YTD",
-                     step="year",
-                     stepmode="todate"),
-                dict(count=1,
-                     label="1y",
-                     step="year",
-                     stepmode="backward"),
-                dict(step="all")])
-            ),rangeslider=dict(visible=True),type="date"))
-plot(fig)
-```
-
-<br/>
-<p align="center">
-<img width="1267" alt="Capture d’écran 2020-11-23 à 22 47 10" src="https://user-images.githubusercontent.com/63207451/100019545-860e3600-2dde-11eb-8bd2-01372384f569.png">
-<p/>
-
-# Machine Learning
-
-## Regression linéaire
+### Regression linéaire
 
 ```py
 from sklearn.linear_model import LinearRegression
@@ -808,50 +435,6 @@ fig.show()
 <p align="center">
 <img width="1166" alt="Capture d’écran 2020-11-24 à 10 45 21" src="https://user-images.githubusercontent.com/63207451/100077394-9821c000-2e42-11eb-9700-8f103b2000c5.png">
 <p/>
-
-## Regression surfacique en 3D
-
-Le contenu de df_final est disponible dans les fichiers du github.
-
-```py
-from sklearn.svm import SVR
-
-mesh_size = .02
-margin = 0
-
-df = df_final
-
-X = df[['x', 'y']]
-y = df['hauteurs']
-
-# Modele
-model = SVR(C=1.)
-model.fit(X, y)
-
-# mesh grid 
-x_min, x_max = X.x.min() - margin, X.x.max() + margin
-y_min, y_max = X.y.min() - margin, X.y.max() + margin
-xrange = np.arange(x_min, x_max, mesh_size)
-yrange = np.arange(y_min, y_max, mesh_size)
-xx, yy = np.meshgrid(xrange, yrange)
-
-# On run le modele
-pred = model.predict(np.c_[xx.ravel(), yy.ravel()])
-pred = pred.reshape(xx.shape)
-
-# plot
-fig = px.scatter_3d(df, x='x', y='y', z='hauteurs')
-fig.update_traces(marker=dict(size=5))
-fig.add_traces(go.Surface(x=xrange, y=yrange, z=pred, name='pred_surface'))
-plot(fig)
-```
-
-<br/>
-<p align="center">
-<img width="1093" alt="Capture d’écran 2020-11-24 à 11 25 44" src="https://user-images.githubusercontent.com/63207451/100082229-411ee980-2e48-11eb-89c2-4a480a5eb613.png">
-<p/>
-
-## Réduction-de-dimension
 
 ### UMAP
 
@@ -895,7 +478,259 @@ plot(fig)
 <img width="1328" alt="Capture d’écran 2021-04-30 à 13 03 58" src="https://user-images.githubusercontent.com/63207451/116686752-8fff1b00-a9b4-11eb-8733-a3491e45f36e.png">
 <p/>
 
-## réseau-de-neurones
+<br/>
+
+## Graphique de corrélation
+
+```py
+df = px.data.iris()
+fig = px.scatter_matrix(df, dimensions=["sepal_width", "sepal_length", "petal_width", "petal_length"], color="species")
+plot(fig)
+```
+<br/>
+<p align="center">
+<img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 03" src="https://user-images.githubusercontent.com/63207451/100014133-404d6f80-2dd6-11eb-9f4e-f0bca9ee9b96.png">
+<p/>
+<br/>
+
+<br/>
+
+# Plotly.Graph_Objects
+
+Plotly graph_objects, importée en tant que __go__ est la partie de Plotly utilisant la POO, pour créer des graphiques très complets. On va y retrouver la 
+plupart des fonctions de plotly express. 
+Vous verrez dans cette section quelles sont les fonctions les plus utiles de plotly graph_objetcs et comment les personnaliser
+au maximum.
+<br/>
+
+Voici la syntaxe globale d'un code utilisant plotly graph_objects :
+```py
+fig = go.Figure() # création de la figure, ou alors make_subplots
+
+fig.add_TypeTrace("parameters") # on ajoute des figure avec TypeTrace qui est pie, scatter, surface, etc..
+...
+fig.add_TypeTrace("parameters")
+
+fig.update_traces("parameters")
+fig.update_layout("parameters")
+plot(fig)
+```
+
+## Subplots Go
+
+Pour un subplots on utilise un autre moyen pour initialiser la figure :
+
+```py
+fig = make_subplots(rows=2, cols=2,
+                    #column_widths=[0.6, 0.4],
+                    #row_heights=[0.3, 0.3, 0.3],
+                    subplot_titles=["", "", ""],
+                    specs=[[{'type': 'xy'}, {'type': 'domain'}], # 1er ligne
+                           [{'type': 'xy', 'colspan': 2}, None]], # 2e ligne, dont la 1er colonne s'etend sur celle de droite
+                    # si on s'etend sur une colonne on utilise rowspan
+                    # il existe plusieurs type de specs : xy, domain, scene, polar, ternary, mapbox
+                    #horizontal_spacing=0.2,
+                    #vertical_spacing=0.5
+                    )
+
+"Ensuite on ajoute les figure normalement, en indiquant juste l'emplacement du graphique avec les paramètres row et col"
+x=np.linspace(-4,4)
+# 1er figure
+fig.add_scatter(x=np.linspace(-4,4), y=np.tanh(x),
+                marker=dict(color='green'),
+                row=1, col=1, name="tangente hyperbolique"
+                )
+# 2e figure
+fig.add_pie(labels=['oui', 'non'],
+            values=[201902,192981], row=1, col=2)
+# 3e figure
+fig.add_traces( # je vais ajouter 2 courbes en même temps sur la dernière ligne
+    [
+        go.Scatter(x=x, y=np.square(x), mode='markers+lines', name='x²'),
+        go.Scatter(x=x,y=-np.square(x), name='-x²')
+    ],
+    rows=2, cols=1
+)
+
+plot(fig)
+```
+
+<br/>
+<img width="1386" alt="Capture d’écran 2021-05-18 à 15 19 28" src="https://user-images.githubusercontent.com/63207451/118658192-72bbb080-b7ec-11eb-995c-5a6ce06180f3.png">
+<br/>
+
+## Scatter
+
+### Scatter basique
+
+On pourra utiliser scattergl pour des gros datasets.
+
+```py
+x = np.linspace(-2, 2, 100)
+y = 1/(1+np.exp(-x))
+
+fig = go.Figure()
+# 1ere solution, on ajoute toutes les figures avec le même appel (pour appliquer une seule fois certains parametres)
+fig.add_traces([go.Scatter(x=x, y=y, mode='markers', name='sigmoid'),
+               go.Scatter(x=x, y=-y, mode='lines', name='negative sigmoid')] )
+# 2e solution, on ajoute les figures indépendemment
+fig.add_scatter(x=x, y=1+y, mode='markers', name='sigmoid+1')
+fig.add_scatter(x=x, y=1-y, mode='lines', name='1-sigmoid')
+
+fig.update_layout(title="sigmoid")
+plot(fig)
+```
+
+<br/>
+<img width="1386" alt="Capture d’écran 2021-05-18 à 15 21 12" src="https://user-images.githubusercontent.com/63207451/118658467-b0b8d480-b7ec-11eb-9218-95555c2d7e3b.png">
+<br/>
+
+### Annotations
+
+```py
+x = np.linspace(-5, 5, 100)
+y = 1/(1+np.exp(-x))
+
+fig = go.Figure()
+fig.add_scatter(x=x,y=y,mode='lines',
+                name='sigmoid',
+                marker=dict(color='green'))
+fig.add_annotation(x=0, y=0.5,
+                   text='point en x=0',
+                   showarrow=True,
+                   arrowhead=1,
+                   arrowsize=1,
+                   arrowwidth=2,
+                   arrowcolor='black',
+                   bgcolor="orange",
+                   borderwidth=1,
+                   yshift=10)
+plot(fig)
+```
+
+<br/>
+<img width="1386" alt="Capture d’écran 2021-05-18 à 15 22 17" src="https://user-images.githubusercontent.com/63207451/118658641-df36af80-b7ec-11eb-896d-696748e90290.png">
+<br/>
+
+### Droite et plage de valeurs
+
+```py
+x = np.linspace(-5, 5, 100)
+y = -1/(1+np.exp(-x))
+
+fig=go.Figure()
+fig.add_scatter(x=x, y=y)
+fig.add_hline(y=-0.5, line_dash="dot", # vline pour verticale
+              annotation_text="0.5",
+              annotation_position="bottom right"
+              )
+fig.add_hrect(y0=-0.85, y1=-0.15, # vrect pour verticale
+              annotation_text="-0.15 à -0.85",
+              annotation_position="top right",
+              fillcolor="blue", opacity=0.15, line_width=0.4)
+
+plot(fig)
+```
+
+<br/>
+<img width="1386" alt="Capture d’écran 2021-05-18 à 15 23 22" src="https://user-images.githubusercontent.com/63207451/118658767-fd9cab00-b7ec-11eb-8826-36abcfc5b512.png">
+<br/>
+
+## Pie chart Go
+
+```py
+labels = ['Apple','Samsung','Nokia','Wiko']
+values = [4500, 3000, 1053, 500]
+fig = go.Figure()
+fig.add_pie(labels=labels, # les valeurs sur lesquelles on compte
+            values=values, # ce qui sert à faire les pourcentages
+            pull=[0, 0, 0, 0.2], # represente une fraction de pi, ici on décale le 4e label
+            textposition='inside',
+            )
+fig.update_traces(hoverinfo='label+percent', # ce qu'on voit avec la souris
+                  textinfo='value', # Ce qu'on lit dans le pie
+                  textfont_size=20, # taille du texte du pie
+                  marker=dict(colors=['gold', 'mediumturquoise', 'darkorange', 'lightgreen']) # couleur des secteurs
+                  )
+plot(fig)
+```
+
+<br/>
+<img width="1386" alt="Capture d’écran 2021-05-18 à 15 24 13" src="https://user-images.githubusercontent.com/63207451/118658898-1dcc6a00-b7ed-11eb-924e-83338a8cb4a5.png">
+<br/>
+
+## Violin chart
+
+```py
+df = px.data.iris()
+fig=go.Figure()
+
+fig.add_violin(y=df['sepal_length'],
+               points='all', # pour tous les afficher
+               box_visible=True,
+               meanline_visible=True,
+               fillcolor='lightblue',
+               opacity=0.7,
+	       name="longueur sepale")
+fig.update_layout(yaxis_zeroline=False)
+plot(fig)
+```
+
+<br/>
+<img width="1386" alt="Capture d’écran 2021-05-18 à 15 26 23" src="https://user-images.githubusercontent.com/63207451/118659221-697f1380-b7ed-11eb-883f-362f7ce4331a.png">
+<br/>
+
+## Histogramme/Bar
+
+A partir du code suivant, on a 2 types de diagrammes bâtons, qu'on choisi avec fig.add_histogram ou fig.add_bar :
+
+```py
+df = px.data.iris()
+fig=go.Figure()
+
+fig.add_XXXXXX(x=df['sepal_width'])
+plot(fig)
+```
+
+|add_histogram|add_bar|
+|-------------|-------|
+|<img width="1386" alt="Capture d’écran 2021-05-18 à 15 29 05" src="https://user-images.githubusercontent.com/63207451/118659679-d4304f00-b7ed-11eb-889d-3df60e99a635.png">|<img width="1386" alt="Capture d’écran 2021-05-18 à 15 30 26" src="https://user-images.githubusercontent.com/63207451/118659902-004bd000-b7ee-11eb-89d1-11ba6f8da369.png">|
+
+## Graphiques en 3D
+
+<br/>
+
+### Surface
+
+```py
+z_data = df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/volcano.csv")
+fig = go.Figure(data=[go.Surface(z=z_data, colorscale='IceFire')]) # Z1 liste de liste
+fig.update_layout(title='Mountain')
+plot(fig)
+```
+
+<br/>
+<p align="center">
+<img width="1267" alt="Capture d’écran 2020-11-23 à 22 30 54" src="https://user-images.githubusercontent.com/63207451/100017741-ad173880-2ddb-11eb-8643-78795b0e3e57.png">
+<p/>
+<br/>
+
+### Nuage de points
+
+```py
+df = px.data.iris()
+fig = px.scatter_3d(df, x='sepal_length', y='sepal_width', z='petal_width',
+              color='species', size='petal_length', size_max=18,symbol='species', opacity=0.7)
+plot(fig)
+```
+<br/>
+<p align="center">
+<img width="1267" alt="Capture d’écran 2020-11-23 à 22 31 34" src="https://user-images.githubusercontent.com/63207451/100017787-bbfdeb00-2ddb-11eb-9ca5-603cca91a999.png">
+<p/>
+
+<br/>
+
+## réseau de neurones
 
 ```py
 # liens
@@ -940,6 +775,55 @@ plot(fig)
 <p align="center">
 <img width="1014" alt="Capture d’écran 2021-04-30 à 13 24 07" src="https://user-images.githubusercontent.com/63207451/116688699-5aa7fc80-a9b7-11eb-8862-1a9307be0412.png">
 <p/>
+
+## Regression surfacique en 3D
+
+Le contenu de df_final est disponible dans les fichiers du github.
+
+```py
+from sklearn.svm import SVR
+
+mesh_size = .02
+margin = 0
+
+df = df_final
+
+X = df[['x', 'y']]
+y = df['hauteurs']
+
+# Modele
+model = SVR(C=1.)
+model.fit(X, y)
+
+# mesh grid 
+x_min, x_max = X.x.min() - margin, X.x.max() + margin
+y_min, y_max = X.y.min() - margin, X.y.max() + margin
+xrange = np.arange(x_min, x_max, mesh_size)
+yrange = np.arange(y_min, y_max, mesh_size)
+xx, yy = np.meshgrid(xrange, yrange)
+
+# On run le modele
+pred = model.predict(np.c_[xx.ravel(), yy.ravel()])
+pred = pred.reshape(xx.shape)
+
+# plot
+fig = px.scatter_3d(df, x='x', y='y', z='hauteurs')
+fig.update_traces(marker=dict(size=5))
+fig.add_traces(go.Surface(x=xrange, y=yrange, z=pred, name='pred_surface'))
+plot(fig)
+```
+
+<br/>
+<p align="center">
+<img width="1284" alt="Capture d’écran 2021-05-18 à 10 56 25" src="https://user-images.githubusercontent.com/63207451/118622535-b2bc6c80-b7c7-11eb-8107-0b53b7437e11.png">
+<p/>
+
+
+
+
+
+
+
 
 
 <br/>
