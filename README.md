@@ -4,7 +4,7 @@
 	<p/>
 <br/>
 
-<h1 align="center">Plotly tutorial - Data analysis and Machine learning</h1>
+<h1 align="center"><b>Plotly tutorial - Data analysis and Machine learning</b></h1>
 <br/>
 	
 <p align="center">
