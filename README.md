@@ -8,7 +8,7 @@
 <br/>
 	
 <p align="center">
-	Ce repo à pour objectif de présenter le module <b>Plotly</b> qui est l'un des modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Il est construit sur 2 composantes principales, à savoir <b>plotly.express<b/> qui est basé sur l'utilisation des dataframes pandas, et qui est simple et rapide, et <b>plotly.graph_objects<b/> qui est beaucoup plus puissant, et beaucoup plus personnalisable, il est basé sur la POO. Dans ce <b>README</b> toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom <b>code.py</b> .
+	Ce repo à pour objectif de présenter le module <b>Plotly</b> qui est l'un des modules les plus utilisés pour faire de la visualisation de données avec Python. Plotly étant le plus compliqué mais également le plus interactif. Il est construit sur 2 composantes principales, à savoir <b>plotly.express</b> qui est basé sur l'utilisation des dataframes pandas, et qui est simple et rapide, et <b>plotly.graph_objects</b> qui est beaucoup plus puissant, et beaucoup plus personnalisable, il est basé sur la POO. Dans ce <b>README</b> toutes les fonctions seront accompagnées du résultat. Le code complet pour ce repository est dans les fichiers sous le nom <b>code.py</b> .
 <br/>
 	<p/>
 
