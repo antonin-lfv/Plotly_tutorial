@@ -896,8 +896,106 @@ plot(fig)
 <img width="1284" alt="Capture d’écran 2021-05-18 à 10 56 25" src="https://user-images.githubusercontent.com/63207451/118622535-b2bc6c80-b7c7-11eb-8107-0b53b7437e11.png">
 <p/>
 
+<br>
 
+# Plotly.figure_factory
 
+__Plotly.figure_factory__ est la partie de plotly qui intervient quand l'utilisation de Go et Px devient impossible.
+
+## Heatmap avec annotations
+
+```py
+z = [[1, 1, 3],
+     [3, 1, 3],
+     [3, 1, 1]]
+
+x = ['Équipe A', 'Équipe B', 'Équipe C']
+y = ['Match 3', 'Match 2', 'Match 1']
+
+z_text = [['Perdu', 'Perdu', 'Gagné'],
+          ['Gagné', 'Perdu', 'Gagné'],
+          ['Gagné', 'Perdu', 'Perdu']]
+
+fig = ff.create_annotated_heatmap(z, x=x, y=y, annotation_text=z_text, colorscale='gnbu')
+plot(fig)
+```
+
+<br/>
+<img width="1413" alt="Capture d’écran 2021-05-19 à 12 14 27" src="https://user-images.githubusercontent.com/63207451/118796290-c33e1700-b89b-11eb-8705-76939c7c381b.png">
+<br/>
+
+## Dendrogrames
+
+```py
+X = np.array([[1],[2], [5], [3]])
+fig = ff.create_dendrogram(X)
+fig.update_layout(width=1080, height=675)
+plot(fig)
+```
+
+<br/>
+<img width="1133" alt="Capture d’écran 2021-05-19 à 12 15 08" src="https://user-images.githubusercontent.com/63207451/118796388-dbae3180-b89b-11eb-95be-b8b2ca1f4caf.png">
+<br/>
+
+## Champ vectoriel
+
+```py
+x,y = np.meshgrid(np.arange(0, 2, .2), np.arange(0, 2, .2))
+u = -np.cos(y)*x
+v = np.sin(x)*y+1
+
+fig = ff.create_quiver(x, y, u, v)
+plot(fig)
+```
+
+<br/>
+<img width="1386" alt="Capture d’écran 2021-05-19 à 12 15 34" src="https://user-images.githubusercontent.com/63207451/118796485-f2ed1f00-b89b-11eb-9fd7-4904de35c834.png">
+<br/>
+
+## Lignes de flux
+
+```py
+x = np.linspace(-4, 4, 80)
+y = np.linspace(-4, 4, 80)
+Y, X = np.meshgrid(x, y)
+u = -(1 + X )**2 + 2*Y
+v = 1 - X + (Y+1)**2
+
+fig = ff.create_streamline(x, y, u, v, arrow_scale=.2)
+plot(fig)
+```
+<br/>
+<img width="1386" alt="Capture d’écran 2021-05-19 à 12 16 29" src="https://user-images.githubusercontent.com/63207451/118796606-0dbf9380-b89c-11eb-8642-a9e7d3d86cf4.png">
+<br/>
+
+## Création d'un tableau
+
+### À la main avec LaTex
+
+```py
+data_matrix = [['Forme factorisée', 'Forme developpée'],
+               ['$(a+b)^{2}$', '$a^{2}+2ab+b^{2}$'],
+               ['$(a-b)^{2}$', '$a^{2}-2ab+b^{2}$'],
+               ['$(a+b)(a-b)$', '$a^{2}-b^{2}$']]
+
+fig =  ff.create_table(data_matrix)
+plot(fig, include_mathjax='cdn')
+```
+<br/>
+<img width="1424" alt="Capture d’écran 2021-05-19 à 12 27 17" src="https://user-images.githubusercontent.com/63207451/118798097-8f63f100-b89d-11eb-8b50-e6ec0f4f66c3.png">
+<br/>
+
+### À partir d'un dataframe pandas
+
+```py
+df = px.data.iris()
+
+fig=ff.create_table(df)
+plot(fig)
+```
+<br/>
+<img width="1424" alt="Capture d’écran 2021-05-19 à 12 27 49" src="https://user-images.githubusercontent.com/63207451/118798163-a1459400-b89d-11eb-923c-d30c47b77c69.png">
+<br/>
 
 
 
