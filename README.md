@@ -36,7 +36,6 @@
 	- [Pie chart](#pie-chart)
 		- [Exemple basique](#exemple-basique)
 	- [Polar bar charts](#polar-bar-charts)
-	- [Points sur une carte](#Points-sur-une-carte)
 	- [Machine Learning](#Machine-learning)
 		- [Regression linéaire](#regression-linéaire)
 	  	- [UMAP](#UMAP)
@@ -401,19 +400,6 @@ plot(fig)
 <img width="1386" alt="Capture d’écran 2021-05-18 à 16 07 18" src="https://user-images.githubusercontent.com/63207451/118666061-2627a380-b7f3-11eb-942d-25e2d9491bac.png">	
 <br/>
 
-## Points sur une carte
-
-```py
-df = px.data.carshare()
-fig = px.scatter_mapbox(df, lat="centroid_lat", lon="centroid_lon", color="peak_hour", size="car_hours",
-                  color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=10,
-                  mapbox_style="carto-positron")
-plot(fig)
-```
-<br/>
-<img width="1166" alt="Capture d’écran 2020-11-23 à 21 46 10" src="https://user-images.githubusercontent.com/63207451/100014788-311af180-2dd7-11eb-951b-a803e3e458ed.png">	
-<br/>
-
 ## Machine Learning
 
 ### Regression linéaire
@@ -501,9 +487,78 @@ plot(fig)
 
 ### Ligne entre Miami et Chicago
 
+```py
+fig = go.Figure()
+
+fig.add_scattermapbox(
+    # on relie Miami (lat = 25.7616798, long = -80.1917902) et Chicago (lat = 41.8119, long = -87.6873)
+    mode = "markers+lines",
+    lon = [-80.1917902, -87.6873],
+    lat = [25.7616798, 41.8119],
+    marker = {'size': 10,
+              'color': 'firebrick',
+              })
+
+fig.update_layout(
+    margin ={'l':0,'t':0,'b':0,'r':0}, # marge left, top, bottom, right
+    mapbox = {
+        'center': {'lon': -80, 'lat': 40},
+        'style': "stamen-terrain",
+        'zoom': 3})
+
+plot(fig)
+```
+
+<br/>
+<img width="1413" alt="Capture d’écran 2021-05-19 à 10 51 17" src="https://user-images.githubusercontent.com/63207451/118784252-24f88400-b890-11eb-9ade-6912e2479c95.png">
+<br/>
+
+
 ### Air colorée sur une carte, triangle des bermudes
 
+```py
+fig = go.Figure()
+
+# les 3 points :
+# Bermudes : lat = 32.320236, long = -64.7740215
+# Miami : lat = 25.7616798, long = -80.1917902
+# San Juan : lat = 18.2232855, long = -66.5927315
+
+fig.add_scattermapbox(
+    fill = "toself",
+    lon = [-64.7740215, -80.1917902, -66.5927315], lat = [32.320236, 25.7616798, 18.2232855],
+    marker = { 'size': 2, 'color': "red" })
+
+fig.update_layout(
+    margin ={'l':0,'t':0,'b':0,'r':0},
+    mapbox = {
+        'style': "stamen-terrain",
+        'center': {'lon': -80, 'lat': 25 },
+        'zoom': 3},
+    showlegend = False)
+
+plot(fig)
+```
+<br/>
+<img width="1413" alt="Capture d’écran 2021-05-19 à 10 51 55" src="https://user-images.githubusercontent.com/63207451/118784355-3b064480-b890-11eb-89a5-c2a27cdd1370.png">
+<br/>
+
 ### Scatter sur une map
+
+```py
+df = px.data.gapminder().query("year == 2007")
+fig = px.scatter_geo(df, locations="iso_alpha", # on situe le pays avec son raccourci international
+                     color="continent", # on colorie par continent
+                     hover_name="country", # ce qu'on voit avec la souris
+                     size="gdpPercap", # la taille des points dépend du pib du pays
+                     projection="natural earth" # type de carte
+                     )
+plot(fig)
+```
+<br/>
+<img width="1413" alt="Capture d’écran 2021-05-19 à 10 53 23" src="https://user-images.githubusercontent.com/63207451/118784620-756fe180-b890-11eb-8f0f-c2f14f6c1d70.png">
+<br/>
+
 
 <br/>
 
