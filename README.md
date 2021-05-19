@@ -54,6 +54,7 @@
 		- [Scatter basique](#scatter-basique)
 		- [Annotations](#annotations)
 		- [Droite et plage de valeurs](#droite-et-plage-de-valeurs)
+		- [Interpolation](#interpolation)
 	- [Pie chart](#Pie-chart-Go)
 	- [Violin chart](#Violin-chart)
 	- [Histogramme/Bar](#Histogrammebar)
@@ -714,6 +715,118 @@ plot(fig)
 
 <br/>
 <img width="1386" alt="Capture d’écran 2021-05-18 à 15 23 22" src="https://user-images.githubusercontent.com/63207451/118658767-fd9cab00-b7ec-11eb-8826-36abcfc5b512.png">
+<br/>
+
+### Interpolation
+
+```py
+"Interpolation"
+
+temps_exec = [0.40251994132995605, 0.014573812484741211, 0.23034405708312988, 0.4499189853668213, 0.8043158054351807, 0.21565508842468262, 0.10195517539978027, 0.35376596450805664, 0.5991549491882324, 0.08605694770812988, 1.1117901802062988, 0.9011919498443604, 0.3789708614349365, 0.8676671981811523, 1.3645083904266357, 0.8764557838439941, 0.13943982124328613, 0.05235695838928223, 0.1372683048248291, 0.29303503036499023]
+l = [3.4549849033355713, 5.4536731243133545, 1.2118861675262451, 0.7063937187194824, 4.295026779174805, 11.98727297782898, 1.0320260524749756, 5.288934707641602, 9.74186897277832, 1.484644889831543, 6.555363893508911, 0.8726191520690918, 2.6839470863342285, 9.980525970458984, 0.665977954864502, 4.907128095626831, 2.7749810218811035, 5.096926927566528, 11.398299217224121, 3.3110921382904053]
+
+fig=make_subplots(rows=2, cols=1,
+                  subplot_titles=["Courbe bleue", "Courbe rouge"],
+                  specs=[[{'type': 'xy'}], [{'type': 'xy'}]],
+                  shared_xaxes=True,
+                  )
+
+## figures principales en haut ##
+# Interpolation linéaire
+fig.add_scatter(y=l, mode='lines', opacity=0.4, line=dict(color='royalblue', width=4), line_dash='dot', name='interpolation linéaire',row=1,col=1)
+# Interpolation par spline
+fig.add_scatter(y=l, mode='lines', line=dict(color='royalblue', width=4), line_shape='spline', name='interpolation par spline',
+                          hovertemplate = "<br>%{y:.0f}</br>", row=1,col=1)
+fig.update_xaxes(title="x", row=1, col=1)
+fig.update_yaxes(title="y", row=1, col=1)
+
+## Titre + axes labels ##
+fig.update_layout(title="Interpolation")
+## ligne moyenne ##
+fig.add_shape(type="line", line_color="firebrick", line_width=2, opacity=1, line_dash="dot",
+              x0=0, x1=len(l)-1, y0=np.mean(l), y1=np.mean(l), row=1, col=1)
+## fleche moyenne ##
+fig.add_annotation(text="Moyenne : {}".format(int(np.mean(l)), grouping=True, monetary=True),
+                   x=int(len(l)/5)*4, # arrows' head
+                   y=np.mean(l)*1.2,  # arrows' head
+                   arrowhead=2, showarrow=True, row=1, col=1)
+## layout custom ##
+fig.update_xaxes(
+        showline=True,
+        showgrid=False,
+        showticklabels=True,
+        linecolor='rgb(204, 204, 204)',
+        linewidth=2,
+        ticks='outside',
+        tickfont=dict(
+            family='Arial',
+            size=12,
+            color='rgb(82, 82, 82)',
+        ), row=1,col=1)
+fig.update_yaxes(
+        showgrid=False,
+        zeroline=True,
+        showline=True,
+        linecolor='rgb(204, 204, 204)',
+        linewidth=2,
+        ticks='outside',
+        tickfont=dict(
+            family='Arial',
+            size=12,
+            color='rgb(82, 82, 82)',
+    ), row=1, col=1)
+
+
+## figures principales en bas ##
+# Interpolation linéaire
+fig.add_scatter(y=temps_exec, mode='lines', opacity=0.4, line=dict(color='firebrick', width=4), line_dash='dot', name="Interpolation linéaire",
+                          row=2,col=1)
+# Interpolation par spline
+fig.add_scatter(y=temps_exec, mode='lines', line=dict(color='firebrick', width=4), line_shape='spline', name="Interpolation par spline",
+                          hovertemplate = "<br>%{y:.3f}</br>", row=2,col=1)
+## ligne moyenne ##
+fig.add_shape(type="line", line_color="royalblue", line_width=2, opacity=1, line_dash="dot",
+              x0=0, x1=len(l)-1, y0=np.mean(temps_exec), y1=np.mean(temps_exec), row=2, col=1)
+## fleche moyenne ##
+fig.add_annotation(text="Moyenne : {} sec".format(round(np.mean(temps_exec),2), grouping=True, monetary=True),
+                   x=int(len(temps_exec)/5)*4, # arrows' head
+                   y=np.mean(temps_exec)*1.2,  # arrows' head
+                   arrowhead=2, showarrow=True, row=2, col=1)
+fig.update_xaxes(title="x", row=2, col=1)
+fig.update_yaxes(title="y", row=2, col=1)
+## layout custom ##
+fig.update_xaxes(
+    showline=True,
+    showgrid=False,
+    showticklabels=True,
+    linecolor='rgb(204, 204, 204)',
+    linewidth=2,
+    ticks='outside',
+    tickfont=dict(
+        family='Arial',
+        size=12,
+        color='rgb(82, 82, 82)',
+    ), row=2, col=1)
+fig.update_yaxes(
+    showgrid=False,
+    zeroline=True,
+    showline=True,
+    linecolor='rgb(204, 204, 204)',
+    linewidth=2,
+    ticks='outside',
+    tickfont=dict(
+        family='Arial',
+        size=12,
+        color='rgb(82, 82, 82)',
+    ), row=2, col=1)
+
+fig.update_layout(plot_bgcolor='white',
+                  hoverlabel_align='right')
+plot(fig)
+```
+
+<br/>
+<img width="1424" alt="Capture d’écran 2021-05-19 à 14 58 16" src="https://user-images.githubusercontent.com/63207451/118816667-b2e56680-b8b2-11eb-8937-7d631592cd1f.png">
 <br/>
 
 ## Pie chart Go
