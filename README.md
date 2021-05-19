@@ -42,6 +42,10 @@
 	  	- [UMAP](#UMAP)
 		- [t-SNE](#t-SNE)
 	- [Graphique de corrélation](#graphique-de-corrélation)
+	- [Maps](#Maps)
+		- [Ligne entre Miami et Chicago](#Ligne-entre-Miami-et-Chicago)
+		- [Air colorée sur une carte, triangle des bermudes](#Air-colorée-sur-une-carte,-triangle-des-bermudes)
+		- [Scatter sur une map](#Scatter-sur-une-map)
 
 <br/>
 
