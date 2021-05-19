@@ -497,6 +497,14 @@ plot(fig)
 <p/>
 <br/>
 
+## Maps
+
+### Ligne entre Miami et Chicago
+
+### Air colorée sur une carte, triangle des bermudes
+
+### Scatter sur une map
+
 <br/>
 
 # Plotly.Graph_Objects
