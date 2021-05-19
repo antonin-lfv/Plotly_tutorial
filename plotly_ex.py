@@ -27,6 +27,8 @@ templates_plotly = ['ggplot2', 'seaborn', 'simple_white', 'plotly',
 
 # Scatter plot
 
+"On personnalise les figures de plotly express suivant ce modèle : "
+
 df = px.data.iris()
 
 fig = px.scatter(df, x="sepal_width", # nom de la colonne du dataframe
@@ -275,6 +277,66 @@ plot(fig)
 df = px.data.iris()
 fig = px.scatter_matrix(df, dimensions=["sepal_width", "sepal_length", "petal_width", "petal_length"], color="species")
 plot(fig)
+
+# Maps
+
+"Ligne entre Miami et Chicago"
+
+fig = go.Figure()
+
+fig.add_scattermapbox(
+    # on relie Miami (lat = 25.7616798, long = -80.1917902) et Chicago (lat = 41.8119, long = -87.6873)
+    mode = "markers+lines",
+    lon = [-80.1917902, -87.6873],
+    lat = [25.7616798, 41.8119],
+    marker = {'size': 10,
+              'color': 'firebrick',
+              })
+
+fig.update_layout(
+    margin ={'l':0,'t':0,'b':0,'r':0}, # marge left, top, bottom, right
+    mapbox = {
+        'center': {'lon': -80, 'lat': 40},
+        'style': "stamen-terrain",
+        'zoom': 3})
+
+plot(fig)
+
+"Air colorée sur une carte, triangle des bermudes"
+
+fig = go.Figure()
+
+# les 3 points :
+# Bermudes : lat = 32.320236, long = -64.7740215
+# Miami : lat = 25.7616798, long = -80.1917902
+# San Juan : lat = 18.2232855, long = -66.5927315
+fig.add_scattermapbox(
+    fill = "toself",
+    lon = [-64.7740215, -80.1917902, -66.5927315], lat = [32.320236, 25.7616798, 18.2232855],
+    marker = { 'size': 2, 'color': "red" })
+
+fig.update_layout(
+    margin ={'l':0,'t':0,'b':0,'r':0},
+    mapbox = {
+        'style': "stamen-terrain",
+        'center': {'lon': -80, 'lat': 25 },
+        'zoom': 3},
+    showlegend = False)
+
+plot(fig)
+
+"Scatter sur une map"
+
+df = px.data.gapminder().query("year == 2007")
+fig = px.scatter_geo(df, locations="iso_alpha", # on situe le pays avec son raccourci international
+                     color="continent", # on colorie par continent
+                     hover_name="country", # ce qu'on voit avec la souris
+                     size="gdpPercap", # la taille des points dépend du pib du pays
+                     projection="natural earth" # type de carte
+                     )
+plot(fig)
+
+
 
 
 
@@ -554,4 +616,73 @@ pred = pred.reshape(xx.shape)
 fig = px.scatter_3d(df, x='x', y='y', z='hauteurs')
 fig.update_traces(marker=dict(size=5))
 fig.add_traces(go.Surface(x=xrange, y=yrange, z=pred, name='pred_surface'))
+plot(fig)
+
+
+
+
+#### Plotly.figure_factory -----------------------------------------
+
+
+"Heatmap avec annotations"
+
+z = [[1, 1, 3],
+     [3, 1, 3],
+     [3, 1, 1]]
+
+x = ['Équipe A', 'Équipe B', 'Équipe C']
+y = ['Match 3', 'Match 2', 'Match 1']
+
+z_text = [['Perdu', 'Perdu', 'Gagné'],
+          ['Gagné', 'Perdu', 'Gagné'],
+          ['Gagné', 'Perdu', 'Perdu']]
+
+fig = ff.create_annotated_heatmap(z, x=x, y=y, annotation_text=z_text, colorscale='gnbu')
+plot(fig)
+
+"Dendrogrames"
+
+X = np.array([[1],[2], [5], [3]])
+fig = ff.create_dendrogram(X)
+fig.update_layout(width=1080, height=675)
+plot(fig)
+
+
+"champ vectoriel"
+
+x,y = np.meshgrid(np.arange(0, 2, .2), np.arange(0, 2, .2))
+u = -np.cos(y)*x
+v = np.sin(x)*y+1
+
+fig = ff.create_quiver(x, y, u, v)
+plot(fig)
+
+"Lignes de flux"
+
+x = np.linspace(-4, 4, 80)
+y = np.linspace(-4, 4, 80)
+Y, X = np.meshgrid(x, y)
+u = -(1 + X )**2 + 2*Y
+v = 1 - X + (Y+1)**2
+
+fig = ff.create_streamline(x, y, u, v, arrow_scale=.2)
+plot(fig)
+
+"Création d'un tableau"
+
+# avec latex à la main
+
+data_matrix = [['Forme factorisée', 'Forme developpée'],
+               ['$(a+b)^{2}$',  '$a^{2}+2ab+b^{2}$'],
+               ['$(a-b)^{2}$',  '$a^{2}-2ab+b^{2}$'],
+               ['$(a+b)(a-b)$', '$a^{2}-b^{2}$']]
+
+fig =  ff.create_table(data_matrix)
+plot(fig, include_mathjax='cdn')
+
+# à partir d'un dataframe pandas
+
+df = px.data.iris()
+
+fig=ff.create_table(df)
 plot(fig)
