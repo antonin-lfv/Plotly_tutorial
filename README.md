@@ -74,6 +74,8 @@
 		- [À la main avec LaTex](#À-la-main-avec-LaTex) 
 		- [À partir d'un dataframe pandas](#À-partir-dun-dataframe-pandas)
 
+<br/>
+
 # Installation
 <br/>
 Installation : <br/>
