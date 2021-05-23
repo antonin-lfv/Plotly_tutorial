@@ -45,6 +45,7 @@
 		- [Ligne entre Miami et Chicago](#Ligne-entre-Miami-et-Chicago)
 		- [Air colorée sur une carte, triangle des bermudes](#Air-colorée-sur-une-carte-triangle-des-bermudes)
 		- [Scatter sur une map](#Scatter-sur-une-map)
+		- [Scatter avec ensemble de points](#Scatter-avec-ensemble-de-points)
 
 <br/>
 
@@ -572,6 +573,39 @@ plot(fig)
 <br/>
 <img width="1413" alt="Capture d’écran 2021-05-19 à 10 53 23" src="https://user-images.githubusercontent.com/63207451/118784620-756fe180-b890-11eb-8f0f-c2f14f6c1d70.png">
 <br/>
+	
+### Scatter avec ensemble de points
+
+```py
+token = 'your token from https://studio.mapbox.com'
+fig = go.Figure()
+	
+fig.add_scattermapbox(
+    mode = "markers",
+    name="",
+    lon = list(df['long'].apply(lambda x : float(x))),
+    lat = list(df['lat'].apply(lambda x : float(x))),
+    marker = dict(size= 5,
+              color= df['richter'],
+              showscale = True,
+              colorscale="jet"
+    ),
+    hovertemplate=
+    "longitude: %{lon}<br>" +
+    "latitude: %{lat}<br>"+
+    "intensité: %{marker.color}"  ,
+)
+fig.update_layout(
+    margin ={'l':0,'t':0,'b':0,'r':0},
+    mapbox = {
+        'accesstoken': token,
+        'style': 'light',
+        'center': {'lon': -80, 'lat': 25 },},
+)
+plot(fig)
+```
+<br/>
+<img width="1426" alt="Capture d’écran 2021-05-22 à 23 16 19" src="https://user-images.githubusercontent.com/63207451/119240977-c105e200-bb53-11eb-885f-7aaf7dc59c4e.png">
 
 
 <br/>
