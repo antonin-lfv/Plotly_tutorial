@@ -56,7 +56,7 @@
 		- [Annotations](#annotations)
 		- [Droite et plage de valeurs](#droite-et-plage-de-valeurs)
 		- [Interpolation](#interpolation)
-	- [Financial Chart](#Financial Chart)
+	- [Financial Chart](#Financial-Chart)
 	- [Pie chart](#Pie-chart-Go)
 	- [Violin chart](#Violin-chart)
 	- [Histogramme/Bar](#Histogrammebar)
