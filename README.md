@@ -56,6 +56,7 @@
 		- [Annotations](#annotations)
 		- [Droite et plage de valeurs](#droite-et-plage-de-valeurs)
 		- [Interpolation](#interpolation)
+	- [Financial Chart](#Financial Chart)
 	- [Pie chart](#Pie-chart-Go)
 	- [Violin chart](#Violin-chart)
 	- [Histogramme/Bar](#Histogrammebar)
@@ -859,6 +860,80 @@ plot(fig)
 
 <br/>
 <img width="1424" alt="Capture d’écran 2021-05-19 à 14 58 16" src="https://user-images.githubusercontent.com/63207451/118816667-b2e56680-b8b2-11eb-8937-7d631592cd1f.png">
+<br/>
+	
+## Financial Chart
+	
+Le dataset et disponible dans les fichiers du repo : "EURUSD_5y.csv"	
+```py
+vert = '#599673'
+rouge = '#e95142'
+noir = '#000'
+df = pd.read_csv('path/EURUSD_5y.csv')
+
+fig = go.Figure()
+
+fig.add_trace(go.Scatter(
+    y = df['Close'],
+    x = df['Date'],
+    line=dict(color=noir, width=1),
+    name="",
+    hovertemplate=
+    "Date: %{x}<br>" +
+    "Close: %{y}<br>"
+))
+
+fig.add_hline(y=df['Close'].iloc[0],
+              line_dash="dot",
+              annotation_text="25 mai 2016",
+              annotation_position="bottom right",
+              line_width=1.5, line=dict(color='black'))
+
+# montée 1
+
+fig.add_vrect(x0='2017-01-01',x1='2018-02-20',
+              fillcolor=vert, opacity=0.2, line_width=0.4,
+              annotation_text='01-01-2017 au 02-20-2018',
+              annotation_position="top left",
+              annotation=dict(font=dict(size=8))
+              )
+
+fig.add_traces(go.Indicator(
+    mode = "number+delta",
+    value = 1.239864,
+    number={'prefix': "$", 'font_size' : 40},
+    delta = {"reference": 1.052698, "valueformat": ".6f", "position" : "bottom"},
+    title = {"text": "Eur/USD"},
+    domain = {'y': [0, 0.5], 'x': [0.15, 0.4]}))
+
+# descente 1
+
+fig.add_traces(go.Indicator(
+    mode = "number+delta",
+    value = 1.077702,
+    number={'prefix': "$", 'font_size' : 40},
+    delta = {"reference": 1.237317, "valueformat": ".6f", "position" : "bottom"},
+    title = {"text": "Eur/USD"},
+    domain = {'y': [0.5, 0.7], 'x': [0.55, 0.75]}))
+
+fig.add_vrect(x0='2018-04-18',x1='2020-04-24',
+              fillcolor=rouge, opacity=0.2, line_width=0.4,
+              annotation_text='18-04-2018 au 24-04-2020',
+              annotation_position="top right",
+              annotation=dict(font=dict(size=8))
+              )
+
+fig.update_layout(
+    template='simple_white',
+    yaxis_title="Euro/USD close",
+    title_text="Euro/USD Close"
+)
+
+plot(fig)	
+```
+	
+<br/>
+<img width="1405" alt="Capture d’écran 2021-05-25 à 11 31 28" src="https://user-images.githubusercontent.com/63207451/119475385-6637da80-bd4d-11eb-824b-58dc00a7e73a.png">
 <br/>
 
 ## Pie chart Go
