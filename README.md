@@ -16,6 +16,8 @@
 
 > Pour comprendre plus en détails comment plotly fonctionne, et pour personnaliser au maximum vos graphiques, je vous invite à consulter mon [article](https://github.com/antonin-lfv/Plotly_tutorial/blob/main/README.md) sur plotly. ( bientôt disponible )
 <br/>
+	
+> Pour mettre en ligne un dashboard avec une page plotly, j'ai crée un [**repository**](https://github.com/antonin-lfv/app_stock_prices) à ce sujet.
 
 # Index
 
