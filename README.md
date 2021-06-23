@@ -43,11 +43,6 @@
 	  	- [UMAP](#UMAP)
 		- [t-SNE](#t-SNE)
 	- [Graphique de corrélation](#graphique-de-corrélation)
-	- [Maps](#Maps)
-		- [Ligne entre Miami et Chicago](#Ligne-entre-Miami-et-Chicago)
-		- [Air colorée sur une carte, triangle des bermudes](#Air-colorée-sur-une-carte-triangle-des-bermudes)
-		- [Scatter sur une map](#Scatter-sur-une-map)
-		- [Scatter avec ensemble de points](#Scatter-avec-ensemble-de-points)
 
 <br/>
 
@@ -67,6 +62,11 @@
 		- [Nuage de points](#nuage-de-points) 
 	- [Réseau de neurones](#réseau-de-neurones)
 	- [Regression surfacique en 3D](#regression-surfacique-en-3d)
+	- [Maps](#Maps)
+		- [Ligne entre Miami et Chicago](#Ligne-entre-Miami-et-Chicago)
+		- [Air colorée sur une carte, triangle des bermudes](#Air-colorée-sur-une-carte-triangle-des-bermudes)
+		- [Scatter sur une map](#Scatter-sur-une-map)
+		- [Scatter avec ensemble de points](#Scatter-avec-ensemble-de-points)
 
 <br/>
 
@@ -499,118 +499,6 @@ plot(fig)
 <p align="center">
 <img width="1187" alt="Capture d’écran 2020-11-23 à 21 43 03" src="https://user-images.githubusercontent.com/63207451/100014133-404d6f80-2dd6-11eb-9f4e-f0bca9ee9b96.png">
 <p/>
-<br/>
-
-## Maps
-
-### Ligne entre Miami et Chicago
-
-```py
-fig = go.Figure()
-
-fig.add_scattermapbox(
-    # on relie Miami (lat = 25.7616798, long = -80.1917902) et Chicago (lat = 41.8119, long = -87.6873)
-    mode = "markers+lines",
-    lon = [-80.1917902, -87.6873],
-    lat = [25.7616798, 41.8119],
-    marker = {'size': 10,
-              'color': 'firebrick',
-              })
-
-fig.update_layout(
-    margin ={'l':0,'t':0,'b':0,'r':0}, # marge left, top, bottom, right
-    mapbox = {
-        'center': {'lon': -80, 'lat': 40},
-        'style': "stamen-terrain",
-        'zoom': 3})
-
-plot(fig)
-```
-
-<br/>
-<img width="1413" alt="Capture d’écran 2021-05-19 à 10 51 17" src="https://user-images.githubusercontent.com/63207451/118784252-24f88400-b890-11eb-9ade-6912e2479c95.png">
-<br/>
-
-
-### Air colorée sur une carte, triangle des bermudes
-
-```py
-fig = go.Figure()
-
-# les 3 points :
-# Bermudes : lat = 32.320236, long = -64.7740215
-# Miami : lat = 25.7616798, long = -80.1917902
-# San Juan : lat = 18.2232855, long = -66.5927315
-
-fig.add_scattermapbox(
-    fill = "toself",
-    lon = [-64.7740215, -80.1917902, -66.5927315], lat = [32.320236, 25.7616798, 18.2232855],
-    marker = { 'size': 2, 'color': "red" })
-
-fig.update_layout(
-    margin ={'l':0,'t':0,'b':0,'r':0},
-    mapbox = {
-        'style': "stamen-terrain",
-        'center': {'lon': -80, 'lat': 25 },
-        'zoom': 3},
-    showlegend = False)
-
-plot(fig)
-```
-<br/>
-<img width="1413" alt="Capture d’écran 2021-05-19 à 10 51 55" src="https://user-images.githubusercontent.com/63207451/118784355-3b064480-b890-11eb-89a5-c2a27cdd1370.png">
-<br/>
-
-### Scatter sur une map
-
-```py
-df = px.data.gapminder().query("year == 2007")
-fig = px.scatter_geo(df, locations="iso_alpha", # on situe le pays avec son raccourci international
-                     color="continent", # on colorie par continent
-                     hover_name="country", # ce qu'on voit avec la souris
-                     size="gdpPercap", # la taille des points dépend du pib du pays
-                     projection="natural earth" # type de carte
-                     )
-plot(fig)
-```
-<br/>
-<img width="1413" alt="Capture d’écran 2021-05-19 à 10 53 23" src="https://user-images.githubusercontent.com/63207451/118784620-756fe180-b890-11eb-8f0f-c2f14f6c1d70.png">
-<br/>
-	
-### Scatter avec ensemble de points
-
-```py
-token = 'your token from https://studio.mapbox.com'
-fig = go.Figure()
-	
-fig.add_scattermapbox(
-    mode = "markers",
-    name="",
-    lon = list(df['long'].apply(lambda x : float(x))),
-    lat = list(df['lat'].apply(lambda x : float(x))),
-    marker = dict(size= 5,
-              color= df['richter'],
-              showscale = True,
-              colorscale="jet"
-    ),
-    hovertemplate=
-    "longitude: %{lon}<br>" +
-    "latitude: %{lat}<br>"+
-    "intensité: %{marker.color}"  ,
-)
-fig.update_layout(
-    margin ={'l':0,'t':0,'b':0,'r':0},
-    mapbox = {
-        'accesstoken': token,
-        'style': 'light',
-        'center': {'lon': -80, 'lat': 25 },},
-)
-plot(fig)
-```
-<br/>
-<img width="1426" alt="Capture d’écran 2021-05-22 à 23 16 19" src="https://user-images.githubusercontent.com/63207451/119240977-c105e200-bb53-11eb-885f-7aaf7dc59c4e.png">
-
-
 <br/>
 
 # Plotly.Graph_Objects
@@ -1121,6 +1009,118 @@ plot(fig)
 <p/>
 
 <br>
+
+## Maps
+
+### Ligne entre Miami et Chicago
+
+```py
+fig = go.Figure()
+
+fig.add_scattermapbox(
+    # on relie Miami (lat = 25.7616798, long = -80.1917902) et Chicago (lat = 41.8119, long = -87.6873)
+    mode = "markers+lines",
+    lon = [-80.1917902, -87.6873],
+    lat = [25.7616798, 41.8119],
+    marker = {'size': 10,
+              'color': 'firebrick',
+              })
+
+fig.update_layout(
+    margin ={'l':0,'t':0,'b':0,'r':0}, # marge left, top, bottom, right
+    mapbox = {
+        'center': {'lon': -80, 'lat': 40},
+        'style': "stamen-terrain",
+        'zoom': 3})
+
+plot(fig)
+```
+
+<br/>
+<img width="1413" alt="Capture d’écran 2021-05-19 à 10 51 17" src="https://user-images.githubusercontent.com/63207451/118784252-24f88400-b890-11eb-9ade-6912e2479c95.png">
+<br/>
+
+
+### Air colorée sur une carte, triangle des bermudes
+
+```py
+fig = go.Figure()
+
+# les 3 points :
+# Bermudes : lat = 32.320236, long = -64.7740215
+# Miami : lat = 25.7616798, long = -80.1917902
+# San Juan : lat = 18.2232855, long = -66.5927315
+
+fig.add_scattermapbox(
+    fill = "toself",
+    lon = [-64.7740215, -80.1917902, -66.5927315], lat = [32.320236, 25.7616798, 18.2232855],
+    marker = { 'size': 2, 'color': "red" })
+
+fig.update_layout(
+    margin ={'l':0,'t':0,'b':0,'r':0},
+    mapbox = {
+        'style': "stamen-terrain",
+        'center': {'lon': -80, 'lat': 25 },
+        'zoom': 3},
+    showlegend = False)
+
+plot(fig)
+```
+<br/>
+<img width="1413" alt="Capture d’écran 2021-05-19 à 10 51 55" src="https://user-images.githubusercontent.com/63207451/118784355-3b064480-b890-11eb-89a5-c2a27cdd1370.png">
+<br/>
+
+### Scatter sur une map
+
+```py
+df = px.data.gapminder().query("year == 2007")
+fig = px.scatter_geo(df, locations="iso_alpha", # on situe le pays avec son raccourci international
+                     color="continent", # on colorie par continent
+                     hover_name="country", # ce qu'on voit avec la souris
+                     size="gdpPercap", # la taille des points dépend du pib du pays
+                     projection="natural earth" # type de carte
+                     )
+plot(fig)
+```
+<br/>
+<img width="1413" alt="Capture d’écran 2021-05-19 à 10 53 23" src="https://user-images.githubusercontent.com/63207451/118784620-756fe180-b890-11eb-8f0f-c2f14f6c1d70.png">
+<br/>
+	
+### Scatter avec ensemble de points
+
+```py
+token = 'your token from https://studio.mapbox.com'
+fig = go.Figure()
+	
+fig.add_scattermapbox(
+    mode = "markers",
+    name="",
+    lon = list(df['long'].apply(lambda x : float(x))),
+    lat = list(df['lat'].apply(lambda x : float(x))),
+    marker = dict(size= 5,
+              color= df['richter'],
+              showscale = True,
+              colorscale="jet"
+    ),
+    hovertemplate=
+    "longitude: %{lon}<br>" +
+    "latitude: %{lat}<br>"+
+    "intensité: %{marker.color}"  ,
+)
+fig.update_layout(
+    margin ={'l':0,'t':0,'b':0,'r':0},
+    mapbox = {
+        'accesstoken': token,
+        'style': 'light',
+        'center': {'lon': -80, 'lat': 25 },},
+)
+plot(fig)
+```
+<br/>
+<img width="1426" alt="Capture d’écran 2021-05-22 à 23 16 19" src="https://user-images.githubusercontent.com/63207451/119240977-c105e200-bb53-11eb-885f-7aaf7dc59c4e.png">
+
+
+<br/>
 
 # Plotly.figure_factory
 
