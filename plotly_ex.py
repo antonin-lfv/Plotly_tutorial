@@ -6,6 +6,7 @@ from plotly.offline import plot  # pour travailler en offline!
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import plotly.figure_factory as ff
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -14,7 +15,6 @@ from sklearn.datasets import load_digits
 from umap import UMAP # pip install umap-learn
 from sklearn.manifold import TSNE
 import networkx as nx
-
 
 #### Templates
 
@@ -218,13 +218,6 @@ fig = px.bar_polar(df, r="frequency", theta="direction", color="strength",
             color_discrete_sequence= px.colors.sequential.Plasma_r)
 plot(fig)
 
-# points sur une carte
-
-df = px.data.carshare()
-fig = px.scatter_mapbox(df, lat="centroid_lat", lon="centroid_lon", color="peak_hour", size="car_hours",
-                  color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=10,
-                  mapbox_style="carto-positron")
-plot(fig)
 
 # ML
 
@@ -243,7 +236,7 @@ y_range = model.predict(x_range.reshape(-1, 1))
 
 fig = px.scatter(df, x='total_bill', y='tip', opacity=0.65)
 fig.add_traces(go.Scatter(x=x_range, y=y_range, name='Regression Fit'))
-fig.show()
+plot(fig)
 
 "UMAP"
 
@@ -277,67 +270,6 @@ plot(fig)
 df = px.data.iris()
 fig = px.scatter_matrix(df, dimensions=["sepal_width", "sepal_length", "petal_width", "petal_length"], color="species")
 plot(fig)
-
-# Maps
-
-"Ligne entre Miami et Chicago"
-
-fig = go.Figure()
-
-fig.add_scattermapbox(
-    # on relie Miami (lat = 25.7616798, long = -80.1917902) et Chicago (lat = 41.8119, long = -87.6873)
-    mode = "markers+lines",
-    lon = [-80.1917902, -87.6873],
-    lat = [25.7616798, 41.8119],
-    marker = {'size': 10,
-              'color': 'firebrick',
-              })
-
-fig.update_layout(
-    margin ={'l':0,'t':0,'b':0,'r':0}, # marge left, top, bottom, right
-    mapbox = {
-        'center': {'lon': -80, 'lat': 40},
-        'style': "stamen-terrain",
-        'zoom': 3})
-
-plot(fig)
-
-"Air colorée sur une carte, triangle des bermudes"
-
-fig = go.Figure()
-
-# les 3 points :
-# Bermudes : lat = 32.320236, long = -64.7740215
-# Miami : lat = 25.7616798, long = -80.1917902
-# San Juan : lat = 18.2232855, long = -66.5927315
-fig.add_scattermapbox(
-    fill = "toself",
-    lon = [-64.7740215, -80.1917902, -66.5927315], lat = [32.320236, 25.7616798, 18.2232855],
-    marker = { 'size': 2, 'color': "red" })
-
-fig.update_layout(
-    margin ={'l':0,'t':0,'b':0,'r':0},
-    mapbox = {
-        'style': "stamen-terrain",
-        'center': {'lon': -80, 'lat': 25 },
-        'zoom': 3},
-    showlegend = False)
-
-plot(fig)
-
-"Scatter sur une map"
-
-df = px.data.gapminder().query("year == 2007")
-fig = px.scatter_geo(df, locations="iso_alpha", # on situe le pays avec son raccourci international
-                     color="continent", # on colorie par continent
-                     hover_name="country", # ce qu'on voit avec la souris
-                     size="gdpPercap", # la taille des points dépend du pib du pays
-                     projection="natural earth" # type de carte
-                     )
-plot(fig)
-
-
-
 
 
 
@@ -545,7 +477,7 @@ plot(fig)
 vert = '#599673'
 rouge = '#e95142'
 noir = '#000'
-df = pd.read_csv('path/EURUSD_5y.csv')
+df = pd.read_csv('EURUSD_5y.csv')
 
 fig = go.Figure()
 
@@ -606,6 +538,7 @@ fig.update_layout(
 )
 
 plot(fig)
+
 
 # Pie chart
 
@@ -789,6 +722,63 @@ fig.add_traces(go.Surface(x=xrange, y=yrange, z=pred, name='pred_surface'))
 plot(fig)
 
 
+# Maps
+
+"Ligne entre Miami et Chicago"
+
+fig = go.Figure()
+
+fig.add_scattermapbox(
+    # on relie Miami (lat = 25.7616798, long = -80.1917902) et Chicago (lat = 41.8119, long = -87.6873)
+    mode = "markers+lines",
+    lon = [-80.1917902, -87.6873],
+    lat = [25.7616798, 41.8119],
+    marker = {'size': 10,
+              'color': 'firebrick',
+              })
+
+fig.update_layout(
+    margin ={'l':0,'t':0,'b':0,'r':0}, # marge left, top, bottom, right
+    mapbox = {
+        'center': {'lon': -80, 'lat': 40},
+        'style': "stamen-terrain",
+        'zoom': 3})
+
+plot(fig)
+
+"Aire colorée sur une carte, triangle des bermudes"
+
+fig = go.Figure()
+
+# les 3 points :
+# Bermudes : lat = 32.320236, long = -64.7740215
+# Miami : lat = 25.7616798, long = -80.1917902
+# San Juan : lat = 18.2232855, long = -66.5927315
+fig.add_scattermapbox(
+    fill = "toself",
+    lon = [-64.7740215, -80.1917902, -66.5927315], lat = [32.320236, 25.7616798, 18.2232855],
+    marker = { 'size': 2, 'color': "red" })
+
+fig.update_layout(
+    margin ={'l':0,'t':0,'b':0,'r':0},
+    mapbox = {
+        'style': "stamen-terrain",
+        'center': {'lon': -80, 'lat': 25 },
+        'zoom': 3},
+    showlegend = False)
+
+plot(fig)
+
+"Scatter sur une map"
+
+df = px.data.gapminder().query("year == 2007")
+fig = px.scatter_geo(df, locations="iso_alpha", # on situe le pays avec son raccourci international
+                     color="continent", # on colorie par continent
+                     hover_name="country", # ce qu'on voit avec la souris
+                     size="gdpPercap", # la taille des points dépend du pib du pays
+                     projection="natural earth" # type de carte
+                     )
+plot(fig)
 
 
 #### Plotly.figure_factory -----------------------------------------
