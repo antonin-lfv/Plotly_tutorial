@@ -16,6 +16,7 @@ from umap import UMAP # pip install umap-learn
 from sklearn.manifold import TSNE
 import networkx as nx
 
+
 #### Templates
 
 templates_plotly = ['ggplot2', 'seaborn', 'simple_white', 'plotly',
@@ -780,6 +781,34 @@ fig = px.scatter_geo(df, locations="iso_alpha", # on situe le pays avec son racc
                      )
 plot(fig)
 
+"Scatter avec groupe de points"
+
+token = 'your token from https://studio.mapbox.com'
+fig = go.Figure()
+df = pd.read_table('quake.dat', names=['depth', 'lat','long','richter'], sep=',' ,encoding='utf-8', skiprows=8)
+fig.add_scattermapbox(
+    mode="markers",
+    name="",
+    lon=list(df['long'].apply(lambda x: float(x))),
+    lat=list(df['lat'].apply(lambda x: float(x))),
+    marker=dict(size=5,
+                color=df['richter'],
+                showscale=True,
+                colorscale="jet"
+                ),
+    hovertemplate=
+    "longitude: %{lon}<br>" +
+    "latitude: %{lat}<br>" +
+    "intensité: %{marker.color}",
+)
+fig.update_layout(
+    margin={'l': 0, 't': 0, 'b': 0, 'r': 0},
+    mapbox={
+        'accesstoken': token,
+        'style': 'light',
+        'center': {'lon': -80, 'lat': 25}, },
+)
+plot(fig)
 
 #### Plotly.figure_factory -----------------------------------------
 
