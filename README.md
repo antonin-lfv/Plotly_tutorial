@@ -71,13 +71,14 @@
 <br/>
 
 - [Plotly.figure_factory](#plotlyfigure_factory)
-	- [Heatmap avec annotations](#Heatmap-avec-annotations)
-	- [Dendrogrames](#Dendrogrames)
-	- [Champ vectoriel](#Champ-vectoriel)
-	- [Lignes de flux](#Lignes-de-flux)
-	- [Création d'un tableau](#Création-dun-tableau)
-		- [À la main avec LaTex](#À-la-main-avec-LaTex) 
-		- [À partir d'un dataframe pandas](#À-partir-dun-dataframe-pandas)
+    - [Distplot](#Distplot)
+    - [Heatmap avec annotations](#Heatmap-avec-annotations)
+    - [Dendrogrames](#Dendrogrames)
+    - [Champ vectoriel](#Champ-vectoriel)
+    - [Lignes de flux](#Lignes-de-flux)
+    - [Création d'un tableau](#Création-dun-tableau)
+        - [À la main avec LaTex](#À-la-main-avec-LaTex) 
+        - [À partir d'un dataframe pandas](#À-partir-dun-dataframe-pandas)
 
 <br/>
 
@@ -1125,6 +1126,24 @@ plot(fig)
 # Plotly.figure_factory
 
 __Plotly.figure_factory__ est la partie de plotly qui intervient quand l'utilisation de Go et Px devient impossible.
+
+## Distplot
+
+```py
+x = [np.random.randn(150)]
+
+label = ['Groupe 1']
+color = ['#B36CD2']
+fig = ff.create_distplot(x, label, colors=color,
+                         bin_size=.2, show_rug=False)
+
+fig.update_layout(title_text='Distplot')
+plot(fig)
+```
+
+<br/>
+<img alt="Distplot" src="https://user-images.githubusercontent.com/63207451/141830733-cf252fc1-d152-4ffa-b137-97586a9257fc.png">
+<br/>
 
 ## Heatmap avec annotations
 

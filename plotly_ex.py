@@ -812,6 +812,17 @@ plot(fig)
 
 #### Plotly.figure_factory -----------------------------------------
 
+"Distplot"
+x = [np.random.randn(150)]
+
+label = ['Groupe 1']
+color = ['#B36CD2']
+fig = ff.create_distplot(x, label, colors=color,
+                         bin_size=.2, show_rug=False)
+
+fig.update_layout(title_text='Distplot')
+plot(fig)
+
 
 "Heatmap avec annotations"
 
