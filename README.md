@@ -1,3 +1,5 @@
+
+
 <p align="center">
 <a href="https://www.python.org" class="fancybox" ><img width="70" height="70" src="https://user-images.githubusercontent.com/63207451/97306728-26fce600-185f-11eb-9784-14151a6b2c43.png"><a/>
 <a href="https://plotly.com" class="fancybox" ><img width="210" height="70" src="https://user-images.githubusercontent.com/63207451/118670736-29bd2980-b7f7-11eb-8aa4-ad41fa393ed1.png"><a/>
@@ -105,6 +107,7 @@ from plotly.offline import plot  # pour travailler en offline!
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import plotly.figure_factory as ff
 import pandas as pd
 import numpy as np
 import statsmodels.api as sm
@@ -1238,9 +1241,6 @@ plot(fig)
 <br/>
 <img width="1424" alt="Capture d’écran 2021-05-19 à 12 27 49" src="https://user-images.githubusercontent.com/63207451/118798163-a1459400-b89d-11eb-923c-d30c47b77c69.png">
 <br/>
-
-
-
 
 
 
